@@ -1,22 +1,24 @@
 <?php
-    include "../config_transcation.php";
+	include "../config_transcation.php";
 	include "../../api_function.php";
 	if(isset($_GET['modules']))
 		$modules = $_GET['modules'];
 	if(isset($_GET['id']))
 		$id = $_GET['id'];
+	if(isset($_GET['status']))
+		$status = $_GET['status'];
     $postdata = json_decode(file_get_contents("php://input"), true);
 	
 	$temp_get_array = $_GET;
 	unset($temp_get_array['modules']);
-    
+
 	if($_SERVER['REQUEST_METHOD'] == "GET")
 	{
 		$sample_array = array();
 		$count = 0;
 		if(isset($id))
 		{
-			$data_from_db = getspecificdata($con,$modules,'iId',$id);//get specific data from database
+			$data_from_db = getspecificServicelist($con,'service_registration_form','iId',$id);//get specific data from database
 			$sample_array['id'] = $data_from_db['iId'];
 			foreach($master_config[$modules] as $key=>$val)
 			{
@@ -44,32 +46,36 @@
 				}
 			}
 
-			$data_from_db = getcreatedtransaction($con,'service_registration_form',$search_str); //get all the data from the database
-			foreach($data_from_db as $key=>$val)
+			$data_from_db = getservicelist($con,'service_registration_form',$status); //get all the data from the database
+			if(count($data_from_db) > 0)
 			{
-				$sample_array[$key]['id'] = $data_from_db[$key]['iId'];
-				foreach($transcation_config as $keys=>$val)
+				foreach($data_from_db as $key=>$val)
 				{
-					if($keys == 'vStatus')
+					$sample_array[$key]['id'] = $data_from_db[$key]['iId'];
+					foreach($transcation_config as $keys=>$val)
 					{
-						$sample_array[$key][$val['clientname']] = $data_from_db[$key][$keys];
+						if($keys == 'vStatus')
+						{
+							$sample_array[$key][$val['clientname']] = $data_from_db[$key][$keys];
+						}
+						else
+						{
+							if(isset($val['data_fetch']))
+							{
+								$sample_array[$key][$val['clientname']] = GETXDATAFROMYID($con,$val['data_fetch'],'vName',$data_from_db[$key][$keys]);
+							}
+							else{
+								$sample_array[$key][$val['clientname']] = $data_from_db[$key][$keys];
+							}
+							//$sample_array[$key][$val['clientname']] = $data_from_db[$key][$keys];
+						}
 					}
-					else
-						$sample_array[$key][$val['clientname']] = $data_from_db[$key][$keys];
-				}
-			}	
+				}	
+			}
 			$count = count($sample_array);
 		}
 		echo json_encode(array("count"=>$count,"rows"=>$sample_array));
 		exit;
 	}
 
-    if($_SERVER['REQUEST_METHOD'] == 'DELETE')
-	{
-		if(specific_data_id($con,"user",$id))
-		{
-			echo json_encode(array("message"=>"user"." delete Successfully"));
-			exit;
-		}
-	}
 ?>

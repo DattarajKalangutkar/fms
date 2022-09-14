@@ -5,7 +5,7 @@
 			'clientname'=>'transServiceNo',
 			'type'=>'string',
 			'html'=>'text',
-			'table'=>'1'
+			'table'=>'1',
 		),
 		'vServiceInwardletterno'=>array(
 			'validate'=>'1',
@@ -110,7 +110,7 @@
 			'table'=>'1'
 		),
 		'dCreatedDate'=>array(
-			'validate'=>'1',
+			'validate'=>'0',
 			'clientname'=>'createdDate',
 			'type'=>'string',
 			'html'=>'text',
@@ -122,7 +122,6 @@
 			'type'=>'string',
 			'html'=>'text',
 			'table'=>'0',
-			'phase1'=>'1',
 		)        
 	) 
 ?>
