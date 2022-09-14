@@ -1,118 +1,113 @@
 <?php
 	$transcation_config = array(
-		'iRescuerId'=>array(
+		'vServiceSrNo'=>array(
 			'validate'=>'1',
-			'clientname'=>'transRescuerId',
+			'clientname'=>'transServiceNo',
 			'type'=>'string',
-			'data_fetch'=>'rescuer',
+			'html'=>'text',
+			'table'=>'1'
+		),
+		'vServiceInwardletterno'=>array(
+			'validate'=>'1',
+			'clientname'=>'transServiceInwardLetterNo',
+			'type'=>'string',
+			'html'=>'text',
+			'table'=>'1'
+		),
+		'dServiceInwardletterdate'=>array(
+			'validate'=>'1',
+			'clientname'=>'transdServiceInwardletterDate',
+			'type'=>'string',
+			'html'=>'text',
+			'table'=>'1'
+		),
+		'vReceivedFrom'=>array(
+			'validate'=>'1',
+			'clientname'=>'transdReceivedFrom',
+			'type'=>'string',
+			'html'=>'text',
+			'table'=>'1'
+		),
+		'iServiceId'=>array(
+			'validate'=>'1',
+			'clientname'=>'transServiceId',
+			'type'=>'string',
+			'data_fetch'=>'services_types',
 			'html'=>'dropdown',
-			'table'=>'1',
-			'phase1'=>'1',
-			'phase2'=>'0',
-			'phase3'=>'0'
+			'table'=>'1'
+		),
+		'vReplyToLetterNo'=>array(
+			'validate'=>'1',
+			'clientname'=>'transdReplyToLetterNo',
+			'type'=>'string',
+			'html'=>'text',
+			'table'=>'1'
+		),
+		'dReplyToLetterDate'=>array(
+			'validate'=>'1',
+			'clientname'=>'transdReplyToLetterDate',
+			'type'=>'string',
+			'html'=>'text',
+			'table'=>'1'
+		),
+		'dReceiptDate'=>array(
+			'validate'=>'1',
+			'clientname'=>'transdReceiptDate',
+			'type'=>'string',
+			'html'=>'text',
+			'table'=>'1'
+		),
+		'vReplyNo'=>array(
+			'validate'=>'1',
+			'clientname'=>'transdReplyNo',
+			'type'=>'string',
+			'html'=>'text',
+			'table'=>'1'
+		),
+		'dReplyDate'=>array(
+			'validate'=>'1',
+			'clientname'=>'transdReplyDate',
+			'type'=>'string',
+			'html'=>'text',
+			'table'=>'1'
+		),
+		'vRemarks'=>array(
+			'validate'=>'1',
+			'clientname'=>'transdRemarks',
+			'type'=>'string',
+			'html'=>'text',
+			'table'=>'1'
 		),
 		'iUserId'=>array(
 			'validate'=>'1',
-			'clientname'=>'transUserId',
+			'clientname'=>'transUser',
 			'type'=>'string',
-			'data_fetch'=>'user',
+			'data_fetch'=>'users',
 			'html'=>'dropdown',
-			'table'=>'1',
-			'phase1'=>'1',
-			'phase2'=>'0',
-			'phase3'=>'0'
+			'table'=>'1'
 		),
-		'iSnakeId'=>array(
+		'dEntryDate'=>array(
 			'validate'=>'1',
-			'clientname'=>'transSnakeId',
+			'clientname'=>'transdEntryDate',
 			'type'=>'string',
-			'data_fetch'=>'snake',
+			'html'=>'text',
+			'table'=>'1'
+		),
+		'iApprovedUserId'=>array(
+			'validate'=>'1',
+			'clientname'=>'transApprovedUser',
+			'type'=>'string',
+			'data_fetch'=>'users',
 			'html'=>'dropdown',
-			'table'=>'1',
-			'phase1'=>'0',
-			'phase2'=>'1',
-			'phase3'=>'0'
+			'table'=>'1'
 		),
-		'vImage'=>array(
-			'validate'=>'0',
-			'clientname'=>'transImage',
-			'type'=>'string',
-			'html'=>'file',
-			'table'=>'0',
-			'phase1'=>'0',
-			'phase2'=>'1',
-			'phase3'=>'0'
-		),
-		'dRescuerDate'=>array(
+		'iApprovalStatus'=>array(
 			'validate'=>'1',
-			'clientname'=>'transRescuerDate',
+			'clientname'=>'transApprovedStatus',
 			'type'=>'string',
-			'html'=>'date',
-			'table'=>'0',
-			'phase1'=>'0',
-			'phase2'=>'1',
-			'phase3'=>'0'
-		),
-		'tRescuerAddress'=>array(
-			'validate'=>'1',
-			'clientname'=>'transRescuerAddress',
-			'type'=>'string',
-			'html'=>'text',
-			'table'=>'0',
-			'phase1'=>'0',
-			'phase2'=>'1',
-			'phase3'=>'0'
-		),
-		'ilength'=>array(
-			'validate'=>'1',
-			'clientname'=>'transSnakeLength',
-			'type'=>'string',
-			'html'=>'text',
-			'table'=>'0',
-			'phase1'=>'0',
-			'phase2'=>'1',
-			'phase3'=>'0'
-		),
-		'iWeight'=>array(
-			'validate'=>'1',
-			'clientname'=>'transSnakeWeight',
-			'type'=>'string',
-			'html'=>'text',
-			'table'=>'0',
-			'phase1'=>'0',
-			'phase2'=>'1',
-			'phase3'=>'0'
-		),
-		'vTranStatus'=>array(
-			'validate'=>'1',
-			'clientname'=>'transStatus',
-			'data_fetch'=>'statustrans',
-			'type'=>'string',
+			'data_fetch'=>'statusform',
 			'html'=>'dropdown',
-			'table'=>'1',
-			'phase1'=>'1',
-			'phase2'=>'1',
-			'phase3'=>'1'
-		),
-		'tComment'=>array(
-			'validate'=>'1',
-			'clientname'=>'transComment',
-			'type'=>'string',
-			'html'=>'textarea',
-			'table'=>'0',
-			'phase1'=>'0',
-			'phase2'=>'0',
-			'phase3'=>'1'
-		),
-		'vRate'=>array(
-			'validate'=>'1',
-			'clientname'=>'transRate',
-			'type'=>'string',
-			'html'=>'text',
-			'table'=>'0',
-			'phase1'=>'0',
-			'phase2'=>'0',
-			'phase3'=>'1'
+			'table'=>'1'
 		),
 		'dCreatedDate'=>array(
 			'validate'=>'1',
@@ -123,7 +118,7 @@
 		),
 		'vStatus'=>array(
 			'validate'=>'1',
-			'clientname'=>'vStatus',
+			'clientname'=>'transStatus',
 			'type'=>'string',
 			'html'=>'text',
 			'table'=>'0',

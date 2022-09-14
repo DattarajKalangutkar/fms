@@ -30,9 +30,9 @@
     {
         $username = 'root';
         $pass = '';
-        $db_name = 'snake';
+        $db_name = 'fms';
         $site_url = 'http://localhost/snake/admin/';
-        $api_url = 'http://localhost/snake/api/';
+        $api_url = 'http://localhost/fms/backend/api/';
         $file_check = $_SERVER['DOCUMENT_ROOT']."/snake/api/";
     }   
 

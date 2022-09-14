@@ -1,6 +1,6 @@
 <?php
 	$master_config = array(
-		'color'=>array(
+		'department'=>array(
 			'vName'=>array(
 				'validate'=>'1',
 				'clientname'=>'colorName',
@@ -24,11 +24,10 @@
 				'table'=>'0'
 			)
 		),
-
-		'pattern'=>array(
+		'statusform'=>array(
 			'vName'=>array(
 				'validate'=>'1',
-				'clientname'=>'patternName',
+				'clientname'=>'statusformName',
 				'type'=>'string',
 				'html'=>'text',
 				'table'=>'1',
@@ -43,456 +42,43 @@
 			),
 			'vStatus'=>array(
 				'validate'=>'1',
-				'clientname'=>'patternStatus',
+				'clientname'=>'statusformStatus',
 				'type'=>'string',
 				'html'=>'',
 				'table'=>'0'
 			)
 		),
-
-		'snake'=>array(
+		'services_types'=>array(
 			'vName'=>array(
 				'validate'=>'1',
-				'clientname'=>'snakeName',
+				'clientname'=>'serviceTypeName',
 				'type'=>'string',
 				'html'=>'text',
 				'table'=>'1',
 				'other_validation'=>'vName'
 			),
-			'vLocalName'=>array(
+			'iDepartmentId'=>array(
 				'validate'=>'1',
-				'clientname'=>'snakeLocalName',
+				'clientname'=>'serviceTypeDepartment',
 				'type'=>'string',
-				'html'=>'text',
-				'table'=>'1',
-			),
-			'vSize'=>array(
-				'validate'=>'1',
-				'clientname'=>'snakeSize',
-				'type'=>'string',
-				'html'=>'number',
-				'table'=>'0'
-			),
-			'iColor'=>array(
-				'validate'=>'1',
-				'clientname'=>'snakeColor',
-				'type'=>'string',
-				'data_fetch'=>'color',
+				'data_fetch'=>'department',
 				'html'=>'dropdown',
 				'table'=>'1'
 			),
-			'iPattern'=>array(
-				'validate'=>'1',
-				'clientname'=>'snakePattern',
-				'type'=>'string',
-				'data_fetch'=>'pattern',
-				'html'=>'dropdown',
-				'table'=>'1'
-			),
-			'vImage'=>array(
-				'validate'=>'1',
-				'clientname'=>'snakeImage',
-				'type'=>'string',
-				'html'=>'file',
-				'table'=>'0'
-			),
-			'iType'=>array(
-				'validate'=>'0',
-				'clientname'=>'snakeType',
-				'type'=>'string',
-				'data_fetch'=>'snaketype',
-				'html'=>'dropdown',
-				'table'=>'0'
-			),
-			'iHeadShape'=>array(
-				'validate'=>'0',
-				'clientname'=>'snakeHeadShape',
-				'type'=>'string',
-				'data_fetch'=>'headshape',
-				'html'=>'dropdown',
-				'table'=>'1'
-			),
-			'tDesc'=>array(
-				'validate'=>'0',
-				'clientname'=>'snakeDesc',
-				'type'=>'string',
-				'html'=>'textarea',
-				'table'=>'0'
-			),
 			'dCreatedDate'=>array(
 				'validate'=>'0',
 				'clientname'=>'createdDate',
-				'type'=>'date',
+				'type'=>'string',
 				'html'=>'',
 				'table'=>'1'
 			),
 			'vStatus'=>array(
 				'validate'=>'1',
-				'clientname'=>'snakeStatus',
-				'type'=>'string',
-				'html'=>'',
-				'table'=>'0'
-			)
-        ),
-        'snaketype'=>array(
-			'vName'=>array(
-				'validate'=>'1',
-				'clientname'=>'snakeTypeName',
-				'type'=>'string',
-				'html'=>'text',
-				'table'=>'1',
-				'other_validation'=>'vName'
-			),
-			'dCreatedDate'=>array(
-				'validate'=>'0',
-				'clientname'=>'createdDate',
-				'type'=>'date',
-				'html'=>'',
-				'table'=>'1'
-			),
-			'vStatus'=>array(
-				'validate'=>'1',
-				'clientname'=>'snakeTypeStatus',
+				'clientname'=>'serviceTypeStatus',
 				'type'=>'string',
 				'html'=>'',
 				'table'=>'0'
 			)
 		),
-        'statustrans'=>array(
-			'vName'=>array(
-				'validate'=>'1',
-				'clientname'=>'statustransName',
-				'type'=>'string',
-				'html'=>'text',
-				'table'=>'1',
-				'other_validation'=>'vName'
-			),
-			'dCreatedDate'=>array(
-				'validate'=>'0',
-				'clientname'=>'createdDate',
-				'type'=>'date',
-				'html'=>'',
-				'table'=>'1'
-			),
-			'vStatus'=>array(
-				'validate'=>'1',
-				'clientname'=>'statustransStatus',
-				'type'=>'string',
-				'html'=>'',
-				'table'=>'0'
-			)
-		),
-
-        'symptoms'=>array(
-			'vName'=>array(
-				'validate'=>'1',
-				'clientname'=>'symptomsName',
-				'type'=>'string',
-				'html'=>'text',
-				'table'=>'1',
-				'other_validation'=>'vName'
-			),
-			'dCreatedDate'=>array(
-				'validate'=>'0',
-				'clientname'=>'createdDate',
-				'type'=>'string',
-				'html'=>'',
-				'table'=>'1'
-			),
-			'vStatus'=>array(
-				'validate'=>'1',
-				'clientname'=>'symptomsStatus',
-				'type'=>'string',
-				'html'=>'',
-				'table'=>'0'
-			)
-		),
-		'hospital'=>array(
-			'vName'=>array(
-				'validate'=>'1',
-				'clientname'=>'hospitalName',
-				'type'=>'string',
-				'html'=>'text',
-				'table'=>'1',
-				'other_validation'=>'vName'
-			),
-			'vAddress'=>array(
-				'validate'=>'1',
-				'clientname'=>'hospitalAddress',
-				'type'=>'string',
-				'html'=>'text',
-				'table'=>'1'
-			),
-			'vImage'=>array(
-				'validate'=>'1',
-				'clientname'=>'hospitalImage',
-				'type'=>'string',
-				'html'=>'file',
-				'table'=>'0'
-			),
-			'vContact'=>array(
-				'validate'=>'1',
-				'clientname'=>'hospitalContact',
-				'type'=>'string',
-				'html'=>'text',
-				'table'=>'1'
-			),
-			'vEmail'=>array(
-				'validate'=>'1',
-				'clientname'=>'hospitalEmail',
-				'type'=>'string',
-				'html'=>'text',
-				'table'=>'1'
-			),
-			'vLongitude'=>array(
-				'validate'=>'1',
-				'clientname'=>'hospitalLongitute',
-				'type'=>'string',
-				'html'=>'text',
-				'table'=>'1'
-			),
-			'vLatitude'=>array(
-				'validate'=>'1',
-				'clientname'=>'hospitalLatitute',
-				'type'=>'string',
-				'html'=>'text',
-				'table'=>'1'
-			),
-			'dCreatedDate'=>array(
-				'validate'=>'0',
-				'clientname'=>'createdDate',
-				'type'=>'string',
-				'html'=>'',
-				'table'=>'1'
-			),
-			'vStatus'=>array(
-				'validate'=>'1',
-				'clientname'=>'hospitalStatus',
-				'type'=>'string',
-				'html'=>'',
-				'table'=>'0'
-			)
-		),
-		'wildlife'=>array(
-			'vName'=>array(
-				'validate'=>'1',
-				'clientname'=>'wildlifeName',
-				'type'=>'string',
-				'html'=>'text',
-				'table'=>'1',
-				'other_validation'=>'vName'
-			),
-			'vAddress'=>array(
-				'validate'=>'1',
-				'clientname'=>'wildlifeAddress',
-				'type'=>'string',
-				'html'=>'text',
-				'table'=>'1'
-			),
-			'vImage'=>array(
-				'validate'=>'1',
-				'clientname'=>'wildlifeImage',
-				'type'=>'string',
-				'html'=>'file',
-				'table'=>'0'
-			),
-			'vContact'=>array(
-				'validate'=>'1',
-				'clientname'=>'wildlifeContact',
-				'type'=>'string',
-				'html'=>'text',
-				'table'=>'1'
-			),
-			'vEmail'=>array(
-				'validate'=>'1',
-				'clientname'=>'wildlifeEmail',
-				'type'=>'string',
-				'html'=>'text',
-				'table'=>'1'
-			),
-			'vLongitude'=>array(
-				'validate'=>'1',
-				'clientname'=>'wildlifeLongitute',
-				'type'=>'string',
-				'html'=>'text',
-				'table'=>'1'
-			),
-			'vLatitude'=>array(
-				'validate'=>'1',
-				'clientname'=>'wildlifeLatitute',
-				'type'=>'string',
-				'html'=>'text',
-				'table'=>'1'
-			),
-			'dCreatedDate'=>array(
-				'validate'=>'0',
-				'clientname'=>'createdDate',
-				'type'=>'string',
-				'html'=>'',
-				'table'=>'1'
-			),
-			'vStatus'=>array(
-				'validate'=>'1',
-				'clientname'=>'wildlifeStatus',
-				'type'=>'string',
-				'html'=>'',
-				'table'=>'0'
-			)
-		 ),
-		'firstaid'=>array(
-			'vName'=>array(
-				'validate'=>'1',
-				'clientname'=>'firstaidName',
-				'type'=>'string',
-				'html'=>'text',
-				'table'=>'1',
-				'other_validation'=>'vName'
-			),
-			'vDescription'=>array(
-				'validate'=>'1',
-				'clientname'=>'firstaidDescription',
-				'type'=>'string',
-				'html'=>'text',
-				'table'=>'1'
-			),
-			'dCreatedDate'=>array(
-				'validate'=>'0',
-				'clientname'=>'createdDate',
-				'type'=>'string',
-				'html'=>'',
-				'table'=>'1'
-			),
-			'vStatus'=>array(
-				'validate'=>'1',
-				'clientname'=>'firstaidStatus',
-				'type'=>'string',
-				'html'=>'',
-				'table'=>'0'
-			)
-		),
-		'headshape'=>array(
-			'vName'=>array(
-				'validate'=>'1',
-				'clientname'=>'headshapeName',
-				'type'=>'string',
-				'html'=>'text',
-				'table'=>'1',
-				'other_validation'=>'vName'
-			),
-			'dCreatedDate'=>array(
-				'validate'=>'0',
-				'clientname'=>'createdDate',
-				'type'=>'string',
-				'html'=>'',
-				'table'=>'1'
-			),
-			'vStatus'=>array(
-				'validate'=>'1',
-				'clientname'=>'headshapeStatus',
-				'type'=>'string',
-				'html'=>'',
-				'table'=>'0'
-			)
-		),
-		'questions'=>array(
-			'vName'=>array(
-				'validate'=>'1',
-				'clientname'=>'questionName',
-				'type'=>'string',
-				'html'=>'text',
-				'table'=>'1',
-				'other_validation'=>'vName'
-			),
-			'vOptions'=>array(
-				'validate'=>'1',
-				'clientname'=>'questionOptions',
-				'type'=>'string',
-				'html'=>'text',
-				'table'=>'1'
-			),
-			'dCreatedDate'=>array(
-				'validate'=>'0',
-				'clientname'=>'createdDate',
-				'type'=>'string',
-				'html'=>'',
-				'table'=>'1'
-			),
-			'vStatus'=>array(
-				'validate'=>'1',
-				'clientname'=>'headshapeStatus',
-				'type'=>'string',
-				'html'=>'',
-				'table'=>'0'
-			)
-			),
-			'events'=>array(
-				'vName'=>array(
-					'validate'=>'1',
-					'clientname'=>'eventName',
-					'type'=>'string',
-					'html'=>'text',
-					'table'=>'1',
-					'other_validation'=>'vName'
-				),
-				'vDescription'=>array(
-					'validate'=>'1',
-					'clientname'=>'eventDescription',
-					'type'=>'string',
-					'html'=>'text',
-					'table'=>'1'
-				),
-				'vImage'=>array(
-					'validate'=>'1',
-					'clientname'=>'eventsImage',
-					'type'=>'string',
-					'html'=>'file',
-					'table'=>'0'
-				),
-				'dCreatedDate'=>array(
-					'validate'=>'0',
-					'clientname'=>'createdDate',
-					'type'=>'string',
-					'html'=>'',
-					'table'=>'1'
-				),
-				'vStatus'=>array(
-					'validate'=>'1',
-					'clientname'=>'firstaidStatus',
-					'type'=>'string',
-					'html'=>'',
-					'table'=>'0'
-				)
-			),
-		/*'answers'=>array(
-			'iTransactionId'=>array(
-				'validate'=>'1',
-				'clientname'=>'quest',
-				'type'=>'string',
-				'html'=>'text',
-				'table'=>'1',
-				'other_validation'=>'vName'
-			),
-			'vOptions'=>array(
-				'validate'=>'1',
-				'clientname'=>'questionOptions',
-				'type'=>'string',
-				'html'=>'text',
-				'table'=>'1'
-			),
-			'dCreatedDate'=>array(
-				'validate'=>'0',
-				'clientname'=>'createdDate',
-				'type'=>'string',
-				'html'=>'',
-				'table'=>'1'
-			),
-			'vStatus'=>array(
-				'validate'=>'1',
-				'clientname'=>'headshapeStatus',
-				'type'=>'string',
-				'html'=>'',
-				'table'=>'0'
-			)
-		),*/
 	) 
 ?>
