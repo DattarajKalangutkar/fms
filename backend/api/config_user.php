@@ -14,13 +14,6 @@
             'html'=>'text',
             'table'=>'1'
         ),
-        'vEmail'=>array(
-            'validate'=>'1',
-            'clientname'=>'userEmail',
-            'type'=>'string',
-            'html'=>'text',
-            'table'=>'1'
-        ),
         'vUsername'=>array(
             'validate'=>'1',
             'clientname'=>'userUsername',
@@ -37,7 +30,7 @@
         ),
         'iDepartmentId'=>array(
             'validate'=>'1',
-            'clientname'=>'department',
+            'clientname'=>'userdepartment',
             'type'=>'string',
             'html'=>'text',
             'table'=>'0'

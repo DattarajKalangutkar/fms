@@ -414,4 +414,13 @@
 		}
 		return $data; 
 	}
+
+	//Function to get ph no from database shripad,nikhil,deepesh
+    function fetch_db_ph($table,$ph,$con)
+    {
+        $sql =  "select vPhone from  $table where vPhone='$ph'";
+        $sql_result = mysqli_query($con,$sql);
+        $end = mysqli_num_rows($sql_result);
+        return ($end > 0) ? true : false;
+    }
 ?>
