@@ -35,18 +35,18 @@
             'html'=>'text',
             'table'=>'0'
         ),
-        'iRoleId'=>array(
+        'iDepartmentId'=>array(
             'validate'=>'1',
-            'clientname'=>'userRoleId',
+            'clientname'=>'department',
             'type'=>'string',
             'html'=>'text',
             'table'=>'0'
         ),
-        'vImage'=>array(
+        'iHod'=>array(
             'validate'=>'1',
-            'clientname'=>'userImage',
+            'clientname'=>'userHod',
             'type'=>'string',
-            'html'=>'file',
+            'html'=>'text',
             'table'=>'0'
         ),
         'dCreatedDate'=>array(

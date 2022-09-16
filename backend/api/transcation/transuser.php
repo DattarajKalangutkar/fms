@@ -5,8 +5,6 @@
 	$modules = "transcation";
     if(isset($_GET['id']))
 		$id = $_GET['id'];
-	// print_r($postdata);
-	// exit(0);
 
 	if($_SERVER['REQUEST_METHOD'] == "POST")
 	{
@@ -24,9 +22,7 @@
 				$sample_array[$key] = (isset($postdata[$val['clientname']])) ? $postdata[$val['clientname']]:'';
 		}
 
-
 		$rescuer_id = GETXFROMYID($con,'transcation','iRescuerId',$id);
-
 		updateDataForIncrement($con,'rescuer',array('iPoints'=>$postdata['transRate']),'iId',$rescuer_id);
 
 		if(updateData($con,$modules,$sample_array,'iId',$id))

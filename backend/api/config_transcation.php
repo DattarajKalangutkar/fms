@@ -72,19 +72,12 @@
 			'table'=>'1'
 		),
 		'vRemarks'=>array(
-			'validate'=>'1',
+			'validate'=>'0',
 			'clientname'=>'transdRemarks',
 			'type'=>'string',
 			'html'=>'text',
-			'table'=>'1'
-		),
-		'iUserId'=>array(
-			'validate'=>'1',
-			'clientname'=>'transUser',
-			'type'=>'string',
-			'data_fetch'=>'users',
-			'html'=>'dropdown',
-			'table'=>'1'
+			'table'=>'1',
+			'decline_phase'=>'1'
 		),
 		'dEntryDate'=>array(
 			'validate'=>'1',
@@ -93,13 +86,22 @@
 			'html'=>'text',
 			'table'=>'1'
 		),
+		'iCreatedBy'=>array(
+			'validate'=>'1',
+			'clientname'=>'transCreated',
+			'type'=>'string',
+			'data_fetch'=>'users',
+			'html'=>'dropdown',
+			'table'=>'1'
+		),
 		'iApprovedUserId'=>array(
 			'validate'=>'1',
 			'clientname'=>'transApprovedUser',
 			'type'=>'string',
 			'data_fetch'=>'users',
 			'html'=>'dropdown',
-			'table'=>'1'
+			'table'=>'1',
+			"decline_phase"=>"1"
 		),
 		'iApprovalStatus'=>array(
 			'validate'=>'1',
