@@ -115,12 +115,9 @@
 	}
 
 	//validate credentials with database
-	function validate_with_db($type,$phone,$pass,$con)
+	function validate_with_db($table,$phone,$pass,$con)
 	{   
-		$table = ($type == 'user') ? 'user':'rescuer';
 	    $sql = "select vStatus from $table where vPhone='$phone' and vPassword='".md5($pass)."' and vStatus='1' order by iId";
-		// echo $sql;
-		// exit(1);
 		$response_query = mysqli_query($con, $sql) or die('Error, insert query failed with query at 83');
 		return (mysqli_num_rows($response_query) > 0 ? true:false);
 	}
@@ -352,9 +349,8 @@
 		return;
 	}
 
-	function getuserdata($type,$phone,$pass,$con,$iden)
+	function getuserdata($table,$phone,$pass,$con,$iden)
 	{
-		$table = ($type == 'user') ? 'user':'rescuer';
 		$sql = "select $iden from $table where vPhone='$phone' and vPassword='".md5($pass)."' and vStatus='1' order by iId";
 		$response_query = mysqli_query($con, $sql) or die('Error, 196');
 		return mysqli_fetch_assoc($response_query)[$iden];

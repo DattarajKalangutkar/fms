@@ -21,9 +21,9 @@
 		}
 
 		//if everythings is FINE then Do validate with Database
-		if(validate_with_db('user',$postdata['userPhone'],$postdata['userPassword'],$con))
+		if(validate_with_db('users',$postdata['userPhone'],$postdata['userPassword'],$con))
 		{
-			echo json_encode(array("token"=>encodejwt($postdata['userPhone'],$postdata['userPassword']),"flag"=>true,"message"=>'','userid'=>getuserdata('user',$postdata['userPhone'],$postdata['userPassword'],$con,'iId')));
+			echo json_encode(array("token"=>encodejwt($postdata['userPhone'],$postdata['userPassword']),"flag"=>true,"message"=>'','userid'=>getuserdata('users',$postdata['userPhone'],$postdata['userPassword'],$con,'iId')));
 			exit;
 		}
 		else
