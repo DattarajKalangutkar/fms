@@ -42,6 +42,13 @@
             'html'=>'text',
             'table'=>'0'
         ),
+        'iLevel'=>array(
+            'validate'=>'1',
+            'clientname'=>'userLevel',
+            'type'=>'string',
+            'html'=>'text',
+            'table'=>'0'
+        ),
         'dCreatedDate'=>array(
             'validate'=>'0',
             'clientname'=>'createdDate',

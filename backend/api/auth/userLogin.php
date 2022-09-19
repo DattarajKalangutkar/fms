@@ -23,7 +23,28 @@
 		//if everythings is FINE then Do validate with Database
 		if(validate_with_db('users',$postdata['userPhone'],$postdata['userPassword'],$con))
 		{
-			echo json_encode(array("token"=>encodejwt($postdata['userPhone'],$postdata['userPassword']),"flag"=>true,"message"=>'','userid'=>getuserdata('users',$postdata['userPhone'],$postdata['userPassword'],$con,'iId')));
+			$data = getuserdata('users',$postdata['userPhone'],$postdata['userPassword'],$con,'iId');
+			//DFA($data);
+			$isMI = ($data['iLevel'] == "3") ? true:false;
+			$isHod = ($data['iLevel'] == "2") ? true:false;
+			
+			if($isMI)
+			{
+				$Hod = "";
+			}
+			else
+			{
+				if(!$isHod)
+				{
+					$Hod = getHodTeam($con,$data['iDepartmentId'],'users');
+				}
+				else
+				{
+					$Hod = $data['iId'];
+				}
+			}
+
+			echo json_encode(array("token"=>encodejwt($postdata['userPhone'],$postdata['userPassword']),"flag"=>true,"message"=>'','userid'=>$data['iId'],"level"=>$data['iLevel'],"isMI"=>$isMI,"isHod"=>$isHod,'Hod'=>$Hod));
 			exit;
 		}
 		else

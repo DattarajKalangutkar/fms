@@ -6,7 +6,8 @@
     
 	if(fetch_db_ph($modules,$postdata['userPhone'],$con))
 	{
-		echo "Entered Phone number is already in use";
+		echo json_encode(array("message"=>"Entered Phone number is already in use","flag"=>false));
+		exit;
 	}
 	else
 	{

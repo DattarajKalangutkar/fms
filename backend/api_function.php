@@ -351,9 +351,16 @@
 
 	function getuserdata($table,$phone,$pass,$con,$iden)
 	{
-		$sql = "select $iden from $table where vPhone='$phone' and vPassword='".md5($pass)."' and vStatus='1' order by iId";
+		$sql = "select * from $table where vPhone='$phone' and vPassword='".md5($pass)."' and vStatus='1' order by iId";
 		$response_query = mysqli_query($con, $sql) or die('Error, 196');
-		return mysqli_fetch_assoc($response_query)[$iden];
+		return mysqli_fetch_assoc($response_query);
+	}
+
+	function getHodTeam($con,$deptid,$table)
+	{
+		$sql = "select * from $table where iDepartmentId='$deptid' and iHod='1' and vStatus='1' order by iId";
+		$response_query = mysqli_query($con, $sql) or die('Error, 196');
+		return mysqli_fetch_assoc($response_query);
 	}
 
 	//get rows plus data.
