@@ -31,7 +31,7 @@
         $username = 'root';
         $pass = '';
         $db_name = 'fms';
-        $site_url = 'http://localhost/snake/admin/';
+        $site_url = 'http://localhost/fms/frontend/';
         $api_url = 'http://localhost/fms/backend/api/';
         $file_check = $_SERVER['DOCUMENT_ROOT']."/snake/api/";
     }   

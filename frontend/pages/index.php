@@ -1,5 +1,5 @@
 <?php
-  include "../../includes/config.php";
+  include "../../backend/includes/config.php";
 ?>
 
 <?php include "../extra/top_header.php";?>
