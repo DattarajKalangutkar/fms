@@ -20,7 +20,7 @@
 		{
 			$data_from_db = getspecificServicelist($con,'service_registration_form','iId',$id);//get specific data from database
 			$sample_array['id'] = $data_from_db['iId'];
-			foreach($master_config[$modules] as $key=>$val)
+			foreach($transcation_config as $key=>$val)
 			{
 				if($key == 'vStatus')
 				{

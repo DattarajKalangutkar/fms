@@ -15,3 +15,5 @@
 <script src="<?php echo $site_url;?>/js/file-upload.js"></script>
 <script src="<?php echo $site_url;?>/js/typeahead.js"></script>
 <script src="<?php echo $site_url;?>/js/select2.js"></script>
+<script src="<?php echo $site_url;?>/vendors/alertify/alertify.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>

@@ -16,5 +16,9 @@
   <link rel="stylesheet" href="<?php echo $site_url;?>/vendors/select2-bootstrap-theme/select2-bootstrap.min.css">
   
   <link rel="stylesheet" href="<?php echo $site_url;?>/css/vertical-layout-light/style.css">
+
+
+  <link rel="stylesheet" href="<?php echo $site_url;?>/vendors/alertify/alertify.min.css">
+
   <link rel="shortcut icon" href="<?php echo $site_url;?>/images/favicon.png" />
 </head>

@@ -1,8 +1,24 @@
 <?php
-  include "../../backend/includes/config.php";
+  include "../../backend/api_function.php";
+  include "../../backend/api/config_transcation.php";
+
+  $action_services_type = $api_url.'master/master.php?modules=services_types';
+  $data_servies_type = json_decode(file_get_contents($action_services_type),true);
+
+  $primary_key = (isset($_GET['id'])) ? $_GET['id']:'';
+  $data = [];
+  if($primary_key != '')
+  {
+    $action = $api_url."transcation/services_list.php";
+    $action .= '?id='.$primary_key;
+    $data = json_decode(file_get_contents($action),true);
+    $data = $data['rows'];
+  }
+
 ?>
 <?php include "../extra/top_header.php";?>
 <body>
+  
   <div class="container-scroller">
     <?php include "../extra/_navbar.php";?>
     <div class="container-fluid page-body-wrapper">
@@ -14,22 +30,22 @@
             <div class="col-12 grid-margin">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Form</h4>
-                  <form class="form-sample">
+                  <h4 class="card-title">Service Registeration Form</h4>
+                  <form class="form-sample" id="myForm" name="myForm">
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group row">
-                          <label class="col-sm-3 col-form-label">First Name</label>
+                          <label class="col-sm-3 col-form-label">Inward Letter No.</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" />
+                            <input type="text" class="form-control" id="inwardletterno" name="inwardletterno" required />
                           </div>
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group row">
-                          <label class="col-sm-3 col-form-label">Last Name</label>
+                          <label class="col-sm-3 col-form-label">Inward Letter Date</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" />
+                            <input type="date" class="form-control" id="inwardletterdate" name="inwardletterdate" required />
                           </div>
                         </div>
                       </div>
@@ -37,20 +53,45 @@
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group row">
-                          <label class="col-sm-3 col-form-label">Gender</label>
+                          <label class="col-sm-3 col-form-label">Recieved From</label>
                           <div class="col-sm-9">
-                            <select class="form-control">
-                              <option>Male</option>
-                              <option>Female</option>
+                            <input type="text" class="form-control" id="recievedfrom" name="recievedfrom" required/>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Service Registeration Type</label>
+                          <div class="col-sm-9">
+                            <select class="js-example-basic-single w-100" id="servicestype" name="servicestype">
+                              <option value="0">Select the Type</option>
+                              <?php
+                                foreach($data_servies_type['rows'] as $key=>$value)
+                                {
+                              ?>
+                                  <option value="<?php echo $value['id'];?>"><?php echo $value['serviceTypeName'];?></option>
+                              <?php
+                                }
+                              ?>
                             </select>
                           </div>
                         </div>
                       </div>
+                    </div>
+                    <div class="row">
                       <div class="col-md-6">
                         <div class="form-group row">
-                          <label class="col-sm-3 col-form-label">Date of Birth</label>
+                          <label class="col-sm-3 col-form-label">Reply Letter No</label>
                           <div class="col-sm-9">
-                            <input class="form-control" placeholder="dd/mm/yyyy"/>
+                              <input type="text" class="form-control" id="replyletterno" name="replyletterno" required />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Reply Letter Date</label>
+                          <div class="col-sm-9">
+                            <input type="date" class="form-control" id="replyletterdate" name="replyletterdate" required />
                           </div>
                         </div>
                       </div>
@@ -58,35 +99,17 @@
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group row">
-                          <label class="col-sm-3 col-form-label">Category</label>
+                          <label class="col-sm-3 col-form-label">Subject</label>
                           <div class="col-sm-9">
-                            <select class="js-example-basic-single w-100">
-                              <option>Category1</option>
-                              <option>Category2</option>
-                              <option>Category3</option>
-                              <option>Category4</option>
-                            </select>
+                              <input type="text" class="form-control" id="subject" name="subject" required />
                           </div>
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group row">
-                          <label class="col-sm-3 col-form-label">Membership</label>
-                          <div class="col-sm-4">
-                            <div class="form-check">
-                              <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="membershipRadios" id="membershipRadios1" value="" checked>
-                                Free
-                              </label>
-                            </div>
-                          </div>
-                          <div class="col-sm-5">
-                            <div class="form-check">
-                              <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="membershipRadios" id="membershipRadios2" value="option2">
-                                Professional
-                              </label>
-                            </div>
+                          <label class="col-sm-3 col-form-label">Date of Receipt</label>
+                          <div class="col-sm-9">
+                            <input type="date" class="form-control" id="dateofreceipt" name="dateofreceipt" required/>
                           </div>
                         </div>
                       </div>
@@ -94,35 +117,17 @@
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group row">
-                          <label class="col-sm-3 col-form-label">Address 1</label>
+                          <label class="col-sm-3 col-form-label">Reply No</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" />
+                            <input type="text" class="form-control" id="replyno" name="replyno" required />
                           </div>
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group row">
-                          <label class="col-sm-3 col-form-label">State</label>
+                          <label class="col-sm-3 col-form-label">Reply Date</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-6">
-                        <div class="form-group row">
-                          <label class="col-sm-3 col-form-label">Address 2</label>
-                          <div class="col-sm-9">
-                            <input type="text" class="form-control" />
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="form-group row">
-                          <label class="col-sm-3 col-form-label">Postcode</label>
-                          <div class="col-sm-9">
-                            <input type="text" class="form-control" />
+                            <input type="date" class="form-control" id="replydate" name="replydate" required/>
                           </div>
                         </div>
                       </div>
@@ -130,25 +135,17 @@
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group row">
-                          <label class="col-sm-3 col-form-label">City</label>
+                          <label class="col-sm-3 col-form-label">Remarks</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" />
+                            <textarea class="form-control" id="remark" name="remark"></textarea>
                           </div>
                         </div>
                       </div>
-                      <div class="col-md-6">
-                        <div class="form-group row">
-                          <label class="col-sm-3 col-form-label">Single 2</label>
-                          <div class="col-sm-9">
-                            <select class="js-example-basic-single w-100">
-                              <option value="AL">Alabama</option>
-                              <option value="WY">Wyoming</option>
-                              <option value="AM">America</option>
-                              <option value="CA">Canada</option>
-                              <option value="RU">Russia</option>
-                            </select>
-                          </div>
-                        </div>
+                    </div>
+                    <div class="row">
+                      <div class="mt-3">
+                        <input type="button" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" onclick="validate()" value="Save">
+                        <a class="btn btn-block btn-danger btn-lg font-weight-medium auth-form-btn" href="basic-table.php">CANCEL</a>
                       </div>
                     </div>
                   </form>
@@ -163,3 +160,44 @@
   <?php include "../extra/bottom_footer.php";?>
 </body>
 </html>
+
+<script>
+  function validate()
+  {
+    var payload = {
+    "transServiceNo":"00003",
+    "transServiceInwardLetterNo" : document.getElementById('inwardletterno').value,
+    "transdServiceInwardletterDate":moment(document.getElementById('inwardletterdate').value).format("YYYY-MM-DD"),
+    "transdReceivedFrom":document.getElementById('recievedfrom').value,
+    "transServiceId":document.getElementById('servicestype').value,
+    "transdReplyToLetterNo":document.getElementById('replyletterno').value,
+    "transdReplyToLetterDate":moment(document.getElementById('replyletterdate').value).format("YYYY-MM-DD"),
+    "transdReceiptDate":moment(document.getElementById('dateofreceipt').value).format("YYYY-MM-DD"),
+    "transdReplyNo":document.getElementById('replyno').value,
+    "transdReplyDate":moment(document.getElementById('replydate').value).format("YYYY-MM-DD"),
+    "transdRemarks":document.getElementById('remark').value,
+    "transCreated":"1",
+    "transdEntryDate":moment(new Date()).format("YYYY-MM-DD"),
+    "transApprovedUser":"2",
+    "transApprovedStatus":"1",
+    "transStatus":1
+  };
+    
+    
+  $.ajax({
+      type: "POST",
+      url: '<?php echo "http://localhost/fms/backend/api/transcation/services_form.php"?>',
+      data: JSON.stringify(payload),
+      processData: false,
+      contentType: false,
+      success: function (responseDatas) 
+      {
+        var responseData = JSON.parse(responseDatas);
+        if(responseData.error)
+          alertify.error(responseData.message);
+        console.log(responseData);
+      }
+  });
+
+}
+</script>

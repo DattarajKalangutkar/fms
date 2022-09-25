@@ -1,7 +1,6 @@
 <?php
   include "../../backend/includes/config.php";
 ?>
-
 <?php include "../extra/top_header.php";?>
 <body>
   <div class="container-scroller">
@@ -13,13 +12,13 @@
               <h4>Login</h4>
               <form class="pt-3">
                 <div class="form-group">
-                  <input type="email" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Username">
+                  <input type="number" class="form-control form-control-lg" id="userPhone" placeholder="UserPhone">
                 </div>
                 <div class="form-group">
-                  <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password">
+                  <input type="password" class="form-control form-control-lg" id="userPassword" placeholder="Password">
                 </div>
                 <div class="mt-3">
-                  <a class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" href="basic-table.php">SIGN IN</a>
+                  <a class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" href="javascript:;" onclick="validate();">SIGN IN</a>
                 </div>
                 <div class="my-2 d-flex justify-content-between align-items-center">
                   <div class="form-check">
@@ -45,3 +44,41 @@
   <?php include "../extra/bottom_footer.php";?>
 </body>
 </html>
+<script>
+     function validate()
+     {
+          var phone = document.getElementById("userPhone").value;
+          var password = document.getElementById("userPassword").value;
+
+          if(phone == "")
+          {
+               alertify.error('Please enter Phone');
+               return false;
+          }
+
+          if(password == "")
+          {
+               alertify.error('Please enter Password');
+               return false;
+          }
+
+          var data = {
+               "userPhone":phone,
+               "userPassword":password
+          };
+
+          
+          $.ajax({
+              type: "POST",
+              url: '<?php echo $api_url."auth/userLogin.php";?>',
+              data: JSON.stringify(data),
+              processData: false,
+              contentType: false,
+              success: function (responseData) 
+              {
+                    console.log(responseData);
+                    //window.location.reload();
+              }
+          });
+     }
+</script>

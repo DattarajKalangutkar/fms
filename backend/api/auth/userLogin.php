@@ -44,7 +44,7 @@
 				}
 			}
 
-			echo json_encode(array("token"=>encodejwt($postdata['userPhone'],$postdata['userPassword']),"flag"=>true,"message"=>'','userid'=>$data['iId'],"level"=>$data['iLevel'],"isMI"=>$isMI,"isHod"=>$isHod,'Hod'=>$Hod));
+			echo json_encode(array("token"=>encodejwt($postdata['userPhone'],$postdata['userPassword']),"flag"=>true,"message"=>'','userid'=>$data['iId'],"level"=>$data['iLevel'],"isMI"=>$isMI,"isHod"=>$isHod,'Hod'=>$Hod,"userData"=>$data));
 			exit;
 		}
 		else
