@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 16, 2022 at 07:28 PM
+-- Generation Time: Sep 25, 2022 at 02:40 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 5.6.40
 
@@ -62,7 +62,21 @@ CREATE TABLE `services_types` (
 --
 
 INSERT INTO `services_types` (`iId`, `vName`, `iDepartmentId`, `dCreatedDate`, `vStatus`) VALUES
-(1, 'Birth Certificate', 1, '2022-09-14 10:10:48', '1');
+(1, 'Birth Certificate', 1, '2022-09-14 10:10:48', '1'),
+(2, 'Construction Licenses', 1, '2022-09-18 13:53:10', '1'),
+(3, 'Renewal Licenses', 1, '2022-09-18 13:53:10', '1'),
+(4, 'Repair Licenses', 1, '2022-09-18 13:54:03', '1'),
+(5, 'Revalidation of construction licences', 1, '2022-09-18 14:33:58', '1'),
+(6, 'Occupancy certificate', 1, '2022-09-18 14:33:58', '1'),
+(7, 'MSW Matters', 1, '2022-09-18 14:34:39', '1'),
+(8, 'Collection of Rent', 1, '2022-09-18 14:34:39', '1'),
+(9, 'Collection of House Tax', 1, '2022-09-18 14:35:11', '1'),
+(10, 'Trade License', 1, '2022-09-18 14:35:11', '1'),
+(11, 'Other fees and taxes', 1, '2022-09-18 14:35:44', '1'),
+(12, 'Transfer of property', 1, '2022-09-18 14:35:44', '1'),
+(13, 'Income certificates', 1, '2022-09-18 14:36:14', '1'),
+(14, 'Lease cases of the council', 1, '2022-09-18 14:36:14', '1'),
+(15, 'NOC for water and power service matters', 1, '2022-09-18 14:36:49', '1');
 
 -- --------------------------------------------------------
 
@@ -96,7 +110,13 @@ CREATE TABLE `service_registration_form` (
 --
 
 INSERT INTO `service_registration_form` (`iId`, `vServiceSrNo`, `vServiceInwardletterno`, `dServiceInwardletterdate`, `vReceivedFrom`, `iServiceId`, `vReplyToLetterNo`, `dReplyToLetterDate`, `dReceiptDate`, `vReplyNo`, `dReplyDate`, `vRemarks`, `dEntryDate`, `iCreatedBy`, `iApprovedUserId`, `iApprovalStatus`, `dCreatedDate`, `vStatus`) VALUES
-(2, '00003', '10dfsdf', '2022-01-02', '23', 1, '2resd', '2022-01-02', '2022-01-02', '3', 2022, 'Please Ignore', '2022-01-02', 0, 2, 1, '2022-09-14', '1');
+(2, '00003', '10dfsdf', '2022-01-02', '23', 1, '2resd', '2022-01-02', '2022-01-02', '3', 2022, 'Please Ignore', '2022-01-02', 0, 2, 1, '2022-09-14', '1'),
+(3, '00003', 'T8989', '2022-09-24', 'Shilpa Kamat', 14, '234234', '2022-09-24', '2022-09-24', 'sdfsdf', 2022, '', '2022-09-24', 1, 2, 1, '2022-09-24', '1'),
+(4, '00003', '24324', '2022-09-24', 'ssss', 13, 'sss', '2022-09-24', '2022-09-16', '213123', 2022, '', '2022-09-24', 1, 2, 1, '2022-09-24', '1'),
+(5, '00003', 'T1212', '2022-09-25', 'Dattaraj Kalangutkar', 8, 'T1212/21', '2022-09-25', '2022-09-25', 'T1211/1212', 2022, '', '2022-09-25', 1, 2, 1, '2022-09-25', '1'),
+(6, '00003', 'T909', '2022-09-25', 'Purva Kalangutkar', 1, 'T1212', '2022-09-25', '2022-09-25', 'T090/2323', 2022, '', '2022-09-25', 1, 2, 1, '2022-09-25', '1'),
+(7, '00003', 'T0909', '2022-09-25', 'Nidhi Shetty', 12, 'T323', '2022-09-25', '2022-09-25', 't0909', 2022, '', '2022-09-25', 1, 2, 1, '2022-09-25', '1'),
+(8, '00003', '123/121', '2022-09-10', 'Dattaraj', 12, '3434', '2022-09-17', '2022-09-22', 'sfsdf', 2022, '', '2022-09-25', 1, 2, 1, '2022-09-25', '1');
 
 -- --------------------------------------------------------
 
@@ -133,6 +153,7 @@ CREATE TABLE `users` (
   `vPhone` varchar(255) NOT NULL,
   `iDepartmentId` int(10) NOT NULL,
   `iHod` int(10) NOT NULL DEFAULT '0',
+  `iLevel` int(10) NOT NULL,
   `dCreatedDate` datetime NOT NULL,
   `vStatus` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -141,8 +162,12 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`iId`, `vName`, `vUsername`, `vPassword`, `vPhone`, `iDepartmentId`, `iHod`, `dCreatedDate`, `vStatus`) VALUES
-(1, 'Dattaraj', 'Dattz', '202cb962ac59075b964b07152d234b70', '9545366928', 1, 0, '2022-09-16 16:33:08', '1');
+INSERT INTO `users` (`iId`, `vName`, `vUsername`, `vPassword`, `vPhone`, `iDepartmentId`, `iHod`, `iLevel`, `dCreatedDate`, `vStatus`) VALUES
+(1, 'SuperAdmin', 'superadmin', '202cb962ac59075b964b07152d234b70', '9545366932', 0, 0, 0, '2022-06-20 04:24:09', '1'),
+(2, 'Admin', 'admin', '202cb962ac59075b964b07152d234b70', '9545369111', 0, 0, 1, '2022-06-20 04:24:09', '1'),
+(3, 'MI', 'MI', '202cb962ac59075b964b07152d234b70', '9545366922', 0, 0, 3, '2022-06-20 04:24:09', '1'),
+(4, 'Dattaraj', 'Dattz', '202cb962ac59075b964b07152d234b70', '9545366928', 1, 0, 4, '2022-09-19 15:20:43', '1'),
+(5, 'Saniya', 'Sanya', '202cb962ac59075b964b07152d234b70', '9545366978', 1, 1, 2, '2022-09-19 15:25:27', '1');
 
 --
 -- Indexes for dumped tables
@@ -192,13 +217,13 @@ ALTER TABLE `department`
 -- AUTO_INCREMENT for table `services_types`
 --
 ALTER TABLE `services_types`
-  MODIFY `iId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `iId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `service_registration_form`
 --
 ALTER TABLE `service_registration_form`
-  MODIFY `iId` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `iId` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `statusform`
@@ -210,7 +235,7 @@ ALTER TABLE `statusform`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `iId` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `iId` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
