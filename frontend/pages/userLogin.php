@@ -1,7 +1,6 @@
 <?php
-    include "../config_user.php";
-	include "../../api_function.php";
-	$postdata = json_decode(file_get_contents("php://input"), true);
+  	include "../../backend/api_function.php";
+	$postdata = $_POST;
 
     if($_SERVER['REQUEST_METHOD'] == "POST")
 	{
@@ -26,7 +25,7 @@
 			$isHod = ($data['iLevel'] == "2") ? true:false;	
 			if($isMI)
 			{
-				$Hod = "";
+				$Hod = false;
 			}
 			else
 			{
@@ -39,13 +38,15 @@
 					$Hod = $data['iId'];
 				}
 			}
+			
+			$_SESSION['userData'] = json_encode(array("token"=>encodejwt($postdata['userPhone'],$postdata['userPassword']),"flag"=>true,'userid'=>$data['iId'],"level"=>$data['iLevel'],"isMI"=>$isMI,"isHod"=>$isHod,'Hod'=>$Hod,"userData"=>$data));
 
-			echo json_encode(array("token"=>encodejwt($postdata['userPhone'],$postdata['userPassword']),"flag"=>true,"message"=>'','userid'=>$data['iId'],"level"=>$data['iLevel'],"isMI"=>$isMI,"isHod"=>$isHod,'Hod'=>$Hod,"userData"=>$data));
+			header("location:basic-table.php");
 			exit;
 		}
 		else
 		{
-			echo json_encode(array("token"=>'',"flag"=>false,"message"=>'InValid Credentials'));
+			header("location:index.php");
 			exit;
 		}
 	}

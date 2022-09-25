@@ -410,7 +410,18 @@
 		$data = array();
 		$sql = "select * from $table where vStatus='1' and $identifier=$id order by iId desc";
 		$response_query = mysqli_query($con, $sql) or die('Error, No:157');
-		return mysqli_fetch_assoc($response_query);
+		while($res = mysqli_fetch_assoc($response_query))
+		{
+			$data[] = $res;
+		}
+		return $data; 
+	}
+
+	function getspecificServicelistbasedonuser($con,$table,$identifier,$userid)
+	{
+		$data = array();
+		$sql = "select * from $table where vStatus='1' and $identifier=$userid order by iId desc";
+		$response_query = mysqli_query($con, $sql) or die('Error, No:157');
 		while($res = mysqli_fetch_assoc($response_query))
 		{
 			$data[] = $res;
@@ -425,5 +436,10 @@
         $sql_result = mysqli_query($con,$sql);
         $end = mysqli_num_rows($sql_result);
         return ($end > 0) ? true : false;
+    }
+
+    function getSessionData()
+    {
+    	return json_decode($_SESSION['userData'],true);
     }
 ?>

@@ -46,17 +46,9 @@
     define('NOW',date('Y-m-d H:i:s a'));
     $status_array = array("1"=>"Active","2"=>"InActive");
 
-    //email host config
-    $Year = date("Y"); 
-    //roles
-    $validation_filter_array = array(
-        'compare_with_password',
-        'email_exist',
-        'valid_phone_number',
-        'Valid_full_name',
-        'Space_between',
-        'Exist_bad_word',
-        'valid_email_address',
-        'password_check'
-    );
+
+    $boolean_status = array("0"=>"Yes","1"=>"No");
+    define('MUN_ID',"3");
+
+    session_start();
 ?>

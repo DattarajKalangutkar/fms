@@ -1,11 +1,8 @@
 <?php
   include "../../backend/api_function.php";
-
   include "../../backend/api/config_transcation.php";
-
   $action_services_data = $api_url.'transcation/services_list.php?status=1';
   $data_servies_data = json_decode(file_get_contents($action_services_data),true);
-  //DFA($data_servies_data);
 ?>
 <?php include "../extra/top_header.php";?>
 <style>
@@ -98,3 +95,6 @@
   <?php include "../extra/bottom_footer.php";?>
 </body>
 </html>
+<script type="text/javascript">
+  console.log(JSON.parse(sessionStorage.getItem('userData')));
+</script>
