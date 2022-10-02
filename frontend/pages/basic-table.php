@@ -1,7 +1,11 @@
 <?php
   include "../../backend/api_function.php";
   include "../../backend/api/config_transcation.php";
-  $action_services_data = $api_url.'transcation/services_list.php?status=1';
+
+    
+  $sessiondata = getSessionData();
+ //vUsername
+  $action_services_data = $api_url.'transcation/services_list.php?user='.$sessiondata["userid"];
   $data_servies_data = json_decode(file_get_contents($action_services_data),true);
 ?>
 <?php include "../extra/top_header.php";?>

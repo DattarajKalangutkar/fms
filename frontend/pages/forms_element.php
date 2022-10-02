@@ -1,7 +1,7 @@
 <?php
   include "../../backend/api_function.php";
   include "../../backend/api/config_transcation.php";
-
+  $sessiondata = getSessionData();
   $action_services_type = $api_url.'master/master.php?modules=services_types';
   $data_servies_type = json_decode(file_get_contents($action_services_type),true);
 
@@ -11,10 +11,12 @@
   {
     $action = $api_url."transcation/services_list.php";
     $action .= '?id='.$primary_key;
+    echo $action;
     $data = json_decode(file_get_contents($action),true);
     $data = $data['rows'];
+    //DFA($data);
   }
-
+  
 ?>
 <?php include "../extra/top_header.php";?>
 <body>
@@ -37,7 +39,7 @@
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Inward Letter No.</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" id="inwardletterno" name="inwardletterno" required />
+                            <input type="text" class="form-control" id="inwardletterno" name="inwardletterno" required value="<?php echo $data["transServiceInwardLetterNo"]; ?>" />
                           </div>
                         </div>
                       </div>
@@ -45,7 +47,7 @@
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Inward Letter Date</label>
                           <div class="col-sm-9">
-                            <input type="date" class="form-control" id="inwardletterdate" name="inwardletterdate" required />
+                            <input type="date" class="form-control" id="inwardletterdate" name="inwardletterdate" required  value="<?php echo $data["transdServiceInwardletterDate"]; ?>"/>
                           </div>
                         </div>
                       </div>
@@ -55,7 +57,7 @@
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Recieved From</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" id="recievedfrom" name="recievedfrom" required/>
+                            <input type="text" class="form-control" id="recievedfrom" name="recievedfrom" required value="<?php echo $data["transdReceivedFrom"]; ?>"/>
                           </div>
                         </div>
                       </div>
@@ -63,7 +65,7 @@
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Service Registeration Type</label>
                           <div class="col-sm-9">
-                            <select class="js-example-basic-single w-100" id="servicestype" name="servicestype">
+                            <select class="js-example-basic-single w-100" id="servicestype" name="servicestype" value="<?php echo $data["transServiceId"]; ?>">
                               <option value="0">Select the Type</option>
                               <?php
                                 foreach($data_servies_type['rows'] as $key=>$value)
@@ -83,7 +85,7 @@
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Reply Letter No</label>
                           <div class="col-sm-9">
-                              <input type="text" class="form-control" id="replyletterno" name="replyletterno" required />
+                              <input type="text" class="form-control" id="replyletterno" name="replyletterno" required value="<?php echo $data["transdReplyToLetterNo"]; ?>" />
                           </div>
                         </div>
                       </div>
@@ -91,7 +93,7 @@
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Reply Letter Date</label>
                           <div class="col-sm-9">
-                            <input type="date" class="form-control" id="replyletterdate" name="replyletterdate" required />
+                            <input type="date" class="form-control" id="replyletterdate" name="replyletterdate" required  value="<?php echo $data["transdReplyToLetterDate"]; ?>" />
                           </div>
                         </div>
                       </div>
@@ -101,7 +103,7 @@
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Subject</label>
                           <div class="col-sm-9">
-                              <input type="text" class="form-control" id="subject" name="subject" required />
+                              <input type="text" class="form-control" id="subject" name="subject" required  />
                           </div>
                         </div>
                       </div>
@@ -109,7 +111,7 @@
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Date of Receipt</label>
                           <div class="col-sm-9">
-                            <input type="date" class="form-control" id="dateofreceipt" name="dateofreceipt" required/>
+                            <input type="date" class="form-control" id="dateofreceipt" name="dateofreceipt" required value="<?php echo $data["transdReceiptDate"]; ?>"/>
                           </div>
                         </div>
                       </div>
@@ -119,7 +121,7 @@
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Reply No</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" id="replyno" name="replyno" required />
+                            <input type="text" class="form-control" id="replyno" name="replyno" required  value="<?php echo $data["transdReplyNo"]; ?>" />
                           </div>
                         </div>
                       </div>
@@ -127,7 +129,7 @@
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Reply Date</label>
                           <div class="col-sm-9">
-                            <input type="date" class="form-control" id="replydate" name="replydate" required/>
+                            <input type="date" class="form-control" id="replydate" name="replydate" required value="<?php echo $data["transdReplyDate"]; ?>" />
                           </div>
                         </div>
                       </div>
@@ -137,7 +139,7 @@
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Remarks</label>
                           <div class="col-sm-9">
-                            <textarea class="form-control" id="remark" name="remark"></textarea>
+                            <textarea class="form-control" id="remark" name="remark" value="<?php echo $data["transdRemarks"]; ?>"></textarea>
                           </div>
                         </div>
                       </div>
@@ -176,7 +178,7 @@
     "transdReplyNo":document.getElementById('replyno').value,
     "transdReplyDate":moment(document.getElementById('replydate').value).format("YYYY-MM-DD"),
     "transdRemarks":document.getElementById('remark').value,
-    "transCreated":"1",
+    "transCreated":'<?php echo $sessiondata["userid"]; ?>',
     "transdEntryDate":moment(new Date()).format("YYYY-MM-DD"),
     "transApprovedUser":"2",
     "transApprovedStatus":"1",
@@ -193,9 +195,12 @@
       success: function (responseDatas) 
       {
         var responseData = JSON.parse(responseDatas);
-        if(responseData.error)
+        if(responseData.error) {
           alertify.error(responseData.message);
-        console.log(responseData);
+        } else {
+          console.log(responseData);
+          window.location.href='basic-table.php';
+        }        
       }
   });
 
