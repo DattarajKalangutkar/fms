@@ -13,11 +13,14 @@
     justify-content: space-between;
   }
 
-  .button-add{
-    padding: 6px 20px;
-    color: black;
+  .odd{
+        height: 50px !important;
     background: #eee;
-    text-decoration: none;
+  }
+
+  .even{
+        height: 50px;
+    background: #b4d6d3;
   }
 </style>
 <body>
@@ -34,9 +37,10 @@
                 <div class="card-body">
                   <div class="card-innerbody">
                     <h4 class="card-title">Services Registration List</h4>
-                    <a class="button-add" href="services_form.php">+</a>
+                    <a class="btn btn-outline-secondary btn-icon" href="services_form.php">
+                      <i class="mdi mdi-plus text-danger"></i>
+                    </a>
                   </div>
-                  
                   <div class="table-responsive pt-3">
                     <table class="table table-bordered" id="services_list">
                       <thead>
@@ -100,9 +104,7 @@
 </html>
 <script type="text/javascript">
   $(function() {
-    $('#services_list').DataTable({
-      "iDisplayLength": 10,
-    });
+    $('#services_list').DataTable();
   });
 </script>
 
