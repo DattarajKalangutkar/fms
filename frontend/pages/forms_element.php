@@ -7,6 +7,18 @@
 
   $primary_key = (isset($_GET['id'])) ? $_GET['id']:'';
   $data = [];
+  $data["transServiceInwardLetterNo"] = '';
+  $data["transdServiceInwardletterDate"] = '';
+  $data["transdReceivedFrom"] = '';
+  $data["transServiceId"] = '';
+  $data["transdReplyToLetterNo"] = '';
+  $data["transdReplyToLetterDate"] = '';
+  $data["transdSubject"] = '';
+  $data["transdReceiptDate"] = '';
+  $data["transdReplyNo"] = '';
+  $data["transdReplyDate"] = '';
+  $data["transdRemarks"] = '';
+  
   if($primary_key != '')
   {
     $action = $api_url."transcation/services_list.php";
@@ -107,7 +119,7 @@
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Subject</label>
                           <div class="col-sm-9">
-                              <input type="text" class="form-control" id="subject" name="subject" required  />
+                              <input type="text" class="form-control" id="subject" name="subject" required value="<?php echo $data["transdSubject"]; ?>" />
                           </div>
                         </div>
                       </div>
@@ -191,6 +203,7 @@
     "transdReplyDate":moment(document.getElementById('replydate').value).format("YYYY-MM-DD"),
     "transdRemarks":document.getElementById('remark').value,
     "transCreated":'<?php echo $sessiondata["userid"]; ?>',
+    "transdSubject":document.getElementById('subject').value,
     "transdEntryDate":moment(new Date()).format("YYYY-MM-DD"),
     "transApprovedUser":"2",
     "transApprovedStatus":"1",
