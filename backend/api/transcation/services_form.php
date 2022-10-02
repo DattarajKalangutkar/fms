@@ -35,7 +35,7 @@
 
 		if(singleInsert($modules,$sample_array,$con))
 		{
-			echo json_encode(array("message"=>$modules." created Successfully","flag"=>true));
+			echo json_encode(array("message"=>"Services Saved Successfully","flag"=>true));
 			exit;
 		}
 	}
@@ -70,7 +70,7 @@
 
 		if(updateData($con,$modules,$sample_array,'iId',$id))
 		{
-			echo json_encode(array("message"=>$modules." Updated Successfully","flag"=>true));
+			echo json_encode(array("message"=>"Services Updated Successfully","flag"=>true));
 			exit;
 		}
 	}
