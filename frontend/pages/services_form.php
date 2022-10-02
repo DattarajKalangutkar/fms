@@ -162,8 +162,8 @@
                     </div>
                     <div class="row">
                       <div class="mt-3">
-                        <input type="button" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" onclick="validate()" value="Save">
-                        <a class="btn btn-block btn-danger btn-lg font-weight-medium auth-form-btn" href="basic-table.php">CANCEL</a>
+                        <input type="button" class="btn btn-inverse-primary btn-fw" onclick="validate()" value="Save">
+                        <a class="btn btn-inverse-light btn-fw" href="services_list.php">Cancel</a>
                       </div>
                     </div>
                   </form>
@@ -279,8 +279,7 @@
         if(responseData.error) {
           alertify.error(responseData.message);
         } else {
-          console.log(responseData);
-          window.location.href='basic-table.php';
+          window.location.href='services_list.php';
         }        
       }
   });

@@ -41,7 +41,7 @@
 			
 			$_SESSION['userData'] = json_encode(array("token"=>encodejwt($postdata['userPhone'],$postdata['userPassword']),"flag"=>true,'userid'=>$data['iId'],"level"=>$data['iLevel'],"isMI"=>$isMI,"isHod"=>$isHod,'Hod'=>$Hod,"userData"=>$data));
 
-			header("location:basic-table.php");
+			header("location:dashboard.php");
 			exit;
 		}
 		else

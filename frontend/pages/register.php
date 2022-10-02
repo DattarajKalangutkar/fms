@@ -47,7 +47,7 @@
                 <div class="form-group">
                   <div class="form-check">
                     <label class="form-check-label">
-                      <input type="checkbox"  id="exampleInputIshod" class="form-check-input"> HOD
+                      <input type="checkbox"  id="exampleInputIshod" class="form-check-input"> Are you a HOD? 
                     <i class="input-helper"></i></label>
                   </div>
                   
