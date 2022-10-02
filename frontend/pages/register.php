@@ -45,12 +45,16 @@
                     </select>                  
                 </div>
                 <div class="form-group">
-                  <input type="checkbox"  id="exampleInputIshod">Is HOD
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input type="checkbox"  id="exampleInputIshod" class="form-check-input"> HOD
+                    <i class="input-helper"></i></label>
+                  </div>
+                  
                 </div>
                 <div class="mt-3" style="display: flex;">
-                  <input type="button" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" onclick="register()" value="REGISTER">
-
-                  <a class="btn btn-block btn-danger btn-lg font-weight-medium auth-form-btn" href="index.php">CANCEL</a>
+                  <button type="button" class="btn btn-inverse-primary btn-fw" onclick="register()">Register</button>
+                  <button type="button" class="btn btn-inverse-light btn-fw" onclick="window.location.href='index.php';">Cancel</button>
                 </div>
               </form>
             </div>

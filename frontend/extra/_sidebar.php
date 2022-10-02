@@ -8,7 +8,7 @@
       </li>
       <li class="nav-item">
          <a class="nav-link" href="../pages/basic-table.php">
-         <i class="mdi mdi-grid-large menu-icon"></i>
+         <i class="mdi mdi-Table mdi-grid-large menu-icon"></i>
          <span class="menu-title">List</span>
          </a>
       </li>

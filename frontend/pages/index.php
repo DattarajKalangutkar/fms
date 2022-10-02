@@ -18,7 +18,7 @@
                   <input type="password" class="form-control form-control-lg" id="userPassword" name="userPassword" placeholder="Password">
                 </div>
                 <div class="mt-3">
-                  <input type="submit" name="" value="SIGN IN" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">
+                  <input type="submit" name="" value="SIGN IN" class="btn btn-inverse-primary btn-fw">
                 </div>
                 <div class="text-center mt-4 fw-light">
                   Don't have an account? <a href="register.php" class="text-primary">Create</a>
