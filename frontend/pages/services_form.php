@@ -181,7 +181,6 @@
 </html>
 
 <script>
-
   var id = "<?php echo $primary_key; ?>";
   var method = 'POST';
   var query = '';
