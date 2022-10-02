@@ -3,7 +3,7 @@
 		'department'=>array(
 			'vName'=>array(
 				'validate'=>'1',
-				'clientname'=>'colorName',
+				'clientname'=>'departmentName',
 				'type'=>'string',
 				'html'=>'text',
 				'table'=>'1',
@@ -18,7 +18,7 @@
 			),
 			'vStatus'=>array(
 				'validate'=>'1',
-				'clientname'=>'colorStatus',
+				'clientname'=>'departmentStatus',
 				'type'=>'string',
 				'html'=>'',
 				'table'=>'0'
