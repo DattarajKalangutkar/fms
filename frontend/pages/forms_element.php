@@ -18,7 +18,7 @@
   $data["transdReplyNo"] = '';
   $data["transdReplyDate"] = '';
   $data["transdRemarks"] = '';
-  
+
   if($primary_key != '')
   {
     $action = $api_url."transcation/services_list.php";
@@ -44,7 +44,7 @@
             <div class="col-12 grid-margin">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Service Registeration Form</h4>
+                  <h4 class="card-title">Service Registration Form</h4>
                   <form class="form-sample" id="myForm" name="myForm">
                     <div class="row">
                       <div class="col-md-6">
@@ -155,7 +155,7 @@
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Remarks</label>
                           <div class="col-sm-9">
-                            <textarea class="form-control" id="remark" name="remark" value="<?php echo $data["transdRemarks"]; ?>"></textarea>
+                            <textarea class="form-control" rows="3" id="remark" name="remark" value="<?php echo $data["transdRemarks"]; ?>"></textarea>
                           </div>
                         </div>
                       </div>
@@ -190,6 +190,62 @@
   }
   function validate()
   {
+
+    if (document.getElementById('inwardletterno').value == "") {
+      alertify.error("Enter Inward Letter No.");
+      document.getElementById('inwardletterno').focus();
+      return false;
+    }
+
+    if (document.getElementById('inwardletterdate').value == "") {
+      alertify.error("Enter Inward Letter Date.");
+      document.getElementById('inwardletterdate').focus();
+      return false;
+    }
+
+    if (document.getElementById('recievedfrom').value == "") {
+      alertify.error("Enter Received From.");
+      document.getElementById('recievedfrom').focus();
+      return false;
+    }
+
+    if (document.getElementById('servicestype').value == "") {
+      alertify.error("Select Service Registration Type");
+      document.getElementById('servicestype').focus();
+      return false;
+    }
+
+    if (document.getElementById('replyletterno').value == "") {
+      alertify.error("Enter Reply Letter No.");
+      document.getElementById('replyletterno').focus();
+      return false;
+    }
+
+    if (document.getElementById('replyletterdate').value == "") {
+      alertify.error("Enter Reply Letter Date.");
+      document.getElementById('replyletterdate').focus();
+      return false;
+    }
+
+
+    if (document.getElementById('dateofreceipt').value == "") {
+      alertify.error("Enter Receipt Date.");
+      document.getElementById('dateofreceipt').focus();
+      return false;
+    }
+
+    if (document.getElementById('replyno').value == "") {
+      alertify.error("Enter Reply No.");
+      document.getElementById('replyno').focus();
+      return false;
+    }
+
+    if (document.getElementById('replydate').value == "") {
+      alertify.error("Enter Reply Date.");
+      document.getElementById('replydate').focus();
+      return false;
+    }
+
     var payload = {
     "transServiceNo":"00003",
     "transServiceInwardLetterNo" : document.getElementById('inwardletterno').value,
