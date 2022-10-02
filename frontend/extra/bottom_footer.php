@@ -9,10 +9,6 @@
 <script src="<?php echo $site_url;?>/js/hoverable-collapse.js"></script>
 <script src="<?php echo $site_url;?>/js/template.js"></script>
 <script src="<?php echo $site_url;?>/js/settings.js"></script>
-<script src="<?php echo $site_url;?>/js/todolist.js"></script>
-
-
-<script src="<?php echo $site_url;?>/js/file-upload.js"></script>
 <script src="<?php echo $site_url;?>/js/typeahead.js"></script>
 <script src="<?php echo $site_url;?>/js/select2.js"></script>
 <script src="<?php echo $site_url;?>/vendors/alertify/alertify.min.js"></script>

@@ -2,11 +2,8 @@
   include "../../backend/api_function.php";
   include "../../backend/api/config_transcation.php";
   $page_title = "Services List";
-    
   $sessiondata = getSessionData();
-  //DFA($sessiondata);
   $action_services_data = $api_url.'transcation/services_list.php?user='.$sessiondata["userid"];
-
   $data_servies_data = json_decode(file_get_contents($action_services_data),true);
 ?>
 <?php include "../extra/top_header.php";?>
@@ -41,7 +38,7 @@
                   </div>
                   
                   <div class="table-responsive pt-3">
-                    <table class="table table-bordered">
+                    <table class="table table-bordered" id="services_list">
                       <thead>
                         <tr>
                           <th>
@@ -98,8 +95,14 @@
     </div>
   </div>
   <?php include "../extra/bottom_footer.php";?>
+  <script src="<?php echo $site_url;?>/vendors/datatable/datatable.js"></script>
 </body>
 </html>
 <script type="text/javascript">
-  console.log(JSON.parse(sessionStorage.getItem('userData')));
+  $(function() {
+    $('#services_list').DataTable({
+      "iDisplayLength": 10,
+    });
+  });
 </script>
+
