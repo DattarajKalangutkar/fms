@@ -405,16 +405,11 @@
 		return $data; 
 	}
 
-	function getspecificServicelist($con,$table,$identifier,$id)
+	function getspecificServicelistbasedonId($con,$table,$identifier,$id)
 	{
-		$data = array();
 		$sql = "select * from $table where vStatus='1' and $identifier=$id order by iId desc";
 		$response_query = mysqli_query($con, $sql) or die('Error, No:157');
-		while($res = mysqli_fetch_assoc($response_query))
-		{
-			$data[] = $res;
-		}
-		return $data; 
+		return mysqli_fetch_assoc($response_query); 
 	}
 
 	function getspecificServicelistbasedonuser($con,$table,$identifier,$userid)

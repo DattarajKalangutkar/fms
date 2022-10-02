@@ -20,7 +20,8 @@
 		$count = 0;
 		if(isset($id))
 		{
-			$data_from_db = getspecificServicelist($con,'service_registration_form','iId',$id);//get specific data from database
+			$data_from_db = getspecificServicelistbasedonId($con,'service_registration_form','iId',$id);//get specific data from database
+			//DFA($data_from_db);
 			$sample_array['id'] = $data_from_db['iId'];
 			foreach($transcation_config as $key=>$val)
 			{
@@ -28,8 +29,16 @@
 				{
 					$sample_array[$val['clientname']] = $data_from_db[$key];
 				}
-				else
-					$sample_array[$val['clientname']] = $data_from_db[$key];
+				else{
+					if(isset($val['data_fetch']))
+					{
+						$sample_array[$val['clientname']] = GETXDATAFROMYID($con,$val['data_fetch'],'vName',$data_from_db[$key]);
+					}
+					else{
+						$sample_array[$val['clientname']] = $data_from_db[$key];
+					}
+					//$sample_array[$val['clientname']] = $data_from_db[$key];
+				}
 			}
 			$count = 1;
 		} 
