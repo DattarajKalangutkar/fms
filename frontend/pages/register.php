@@ -3,6 +3,7 @@
 
   include "../../backend/api_function.php";
   include "../../backend/api/config_transcation.php";
+  $page_title = "Register";
 
   $department_type = $api_url.'master/master.php?modules=department';
   $data_department = json_decode(file_get_contents($department_type),true);

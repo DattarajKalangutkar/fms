@@ -1,6 +1,7 @@
 <?php
   include "../../backend/api_function.php";
   include "../../backend/api/config_transcation.php";
+  $page_title = "Services Registeration";
   $sessiondata = getSessionData();
   $action_services_type = $api_url.'master/master.php?modules=services_types';
   $data_servies_type = json_decode(file_get_contents($action_services_type),true);

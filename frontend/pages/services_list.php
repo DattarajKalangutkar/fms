@@ -1,7 +1,7 @@
 <?php
   include "../../backend/api_function.php";
   include "../../backend/api/config_transcation.php";
-
+  $page_title = "Services List";
     
   $sessiondata = getSessionData();
  //vUsername
@@ -79,7 +79,7 @@
                                 <?php echo $value['transServiceId']['vName'];?>
                               </td>
                               <td>
-                                <a href="forms_element.php?id=<?php echo $value['id'];?>">Edit</a>
+                                <a href="services_form.php?id=<?php echo $value['id'];?>">Edit</a>
                               </td>
                             </tr>
                         <?php 

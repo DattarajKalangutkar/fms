@@ -1,5 +1,6 @@
 <?php
   include "../../backend/includes/config.php";
+  $page_title = "Login";
 ?>
 <?php include "../extra/top_header.php";?>
 <body>

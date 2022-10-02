@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title> Login </title>
+  <title> <?php echo $page_title;?> </title>
   <link rel="stylesheet" href="<?php echo $site_url;?>/vendors/feather/feather.css">
   <link rel="stylesheet" href="<?php echo $site_url;?>/vendors/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="<?php echo $site_url;?>/vendors/ti-icons/css/themify-icons.css">
