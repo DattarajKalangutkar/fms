@@ -11,10 +11,10 @@
   {
     $action = $api_url."transcation/services_list.php";
     $action .= '?id='.$primary_key;
-    echo $action;
+    
     $data = json_decode(file_get_contents($action),true);
     $data = $data['rows'];
-    //DFA($data);
+//    DFA($data);
   }
   
 ?>
@@ -65,13 +65,17 @@
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Service Registeration Type</label>
                           <div class="col-sm-9">
-                            <select class="js-example-basic-single w-100" id="servicestype" name="servicestype" value="<?php echo $data["transServiceId"]; ?>">
+                            <select class="js-example-basic-single w-100" id="servicestype" name="servicestype" >
                               <option value="0">Select the Type</option>
                               <?php
+                                  $selected = '';
                                 foreach($data_servies_type['rows'] as $key=>$value)
                                 {
+                               if ($data["transServiceId"]["iId"] == $value["id"]) {
+                                  $selected = 'selected';
+                               }   
                               ?>
-                                  <option value="<?php echo $value['id'];?>"><?php echo $value['serviceTypeName'];?></option>
+                                  <option value="<?php echo $value['id'];?>" <?php echo $selected; ?>><?php echo $value['serviceTypeName'];?></option>
                               <?php
                                 }
                               ?>
@@ -164,6 +168,14 @@
 </html>
 
 <script>
+
+  var id = "<?php echo $primary_key; ?>";
+  var method = 'POST';
+  var query = '';
+  if (id != '') {
+    method = 'PUT';
+    query = '?id='+id;
+  }
   function validate()
   {
     var payload = {
@@ -187,8 +199,8 @@
     
     
   $.ajax({
-      type: "POST",
-      url: '<?php echo "http://localhost/fms/backend/api/transcation/services_form.php"?>',
+      type: method,
+      url: '<?php echo "http://localhost/fms/backend/api/transcation/services_form.php"?>'+query,
       data: JSON.stringify(payload),
       processData: false,
       contentType: false,
