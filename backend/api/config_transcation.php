@@ -57,6 +57,13 @@
 			'html'=>'text',
 			'table'=>'1'
 		),
+		'vSubject'=>array(
+			'validate'=>'1',
+			'clientname'=>'transdSubject',
+			'type'=>'string',
+			'html'=>'text',
+			'table'=>'1'
+		),
 		'vReplyNo'=>array(
 			'validate'=>'1',
 			'clientname'=>'transdReplyNo',
