@@ -437,4 +437,12 @@
     {
     	return json_decode($_SESSION['userData'],true);
     }
+
+    function getMI_user($con)
+    {
+    	$sql =  "select * from users where vstatus='1' and iLevel='3'";
+        $sql_result = mysqli_query($con,$sql);
+        $result = mysqli_fetch_assoc($sql_result);
+    	return $result;
+    }
 ?>

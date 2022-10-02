@@ -76,7 +76,7 @@
                       </div>
                       <div class="col-md-6">
                         <div class="form-group row">
-                          <label class="col-sm-3 col-form-label">Service Registeration Type</label>
+                          <label class="col-sm-3 col-form-label">Registration Type</label>
                           <div class="col-sm-9">
                             <select class="js-example-basic-single w-100" id="servicestype" name="servicestype" >
                               <option value="0">Select the Type</option>
@@ -261,7 +261,7 @@
     "transCreated":'<?php echo $sessiondata["userid"]; ?>',
     "transdSubject":document.getElementById('subject').value,
     "transdEntryDate":moment(new Date()).format("YYYY-MM-DD"),
-    "transApprovedUser":"2",
+    "transApprovedUser":"<?php echo $sessiondata["reported_to"]['iId']; ?>",
     "transApprovedStatus":"1",
     "transStatus":1
   };
@@ -275,6 +275,7 @@
       contentType: false,
       success: function (responseDatas) 
       {
+        var responseData = JSON.parse(responseDatas);
         if(responseData.flag) {
           alertify.success(responseData.message);
           setTimeout(function(){

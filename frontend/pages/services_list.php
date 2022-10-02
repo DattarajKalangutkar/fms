@@ -4,8 +4,9 @@
   $page_title = "Services List";
     
   $sessiondata = getSessionData();
- //vUsername
+  //DFA($sessiondata);
   $action_services_data = $api_url.'transcation/services_list.php?user='.$sessiondata["userid"];
+
   $data_servies_data = json_decode(file_get_contents($action_services_data),true);
 ?>
 <?php include "../extra/top_header.php";?>
@@ -35,7 +36,7 @@
               <div class="card">
                 <div class="card-body">
                   <div class="card-innerbody">
-                    <h4 class="card-title">Services Registeration Table</h4>
+                    <h4 class="card-title">Services Registration List</h4>
                     <a class="button-add" href="services_form.php">+</a>
                   </div>
                   
