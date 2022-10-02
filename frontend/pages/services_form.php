@@ -275,12 +275,14 @@
       contentType: false,
       success: function (responseDatas) 
       {
-        var responseData = JSON.parse(responseDatas);
-        if(responseData.error) {
-          alertify.error(responseData.message);
+        if(responseData.flag) {
+          alertify.success(responseData.message);
+          setTimeout(function(){
+            window.location.href='services_list.php';
+          }, 2000);
         } else {
-          window.location.href='services_list.php';
-        }        
+          alertify.error(responseData.message);
+        }     
       }
   });
 

@@ -1,14 +1,9 @@
 <?php
-
-
   include "../../backend/api_function.php";
   include "../../backend/api/config_transcation.php";
   $page_title = "Register";
-
   $department_type = $api_url.'master/master.php?modules=department';
   $data_department = json_decode(file_get_contents($department_type),true);
-
-
 ?>
 <?php include "../extra/top_header.php";?>
 <body>
@@ -39,7 +34,7 @@
                         foreach($data_department['rows'] as $key=>$value)
                         {
                       ?>
-                          <option value="<?php echo $value['id'];?>"><?php echo $value['colorName'];?></option>
+                          <option value="<?php echo $value['id'];?>"><?php echo $value['departmentName'];?></option>
                       <?php
                         }
                       ?>
@@ -71,52 +66,49 @@
 </html>
 
 <script>
-  function register()
-  {
-
-   
-    if (document.getElementById("exampleInputusername1").value == 0) {
-      alertify.error("Enter Username");
-      document.getElementById("exampleInputusername1").focus();
-      return false;
-    }
-    if (document.getElementById("exampleInputPassword1").value == 0) {
-      alertify.error("Enter Password");
-      document.getElementById("exampleInputPassword1").focus();
-      return false;
-    }
-    if (document.getElementById("exampleInputName").value == 0) {
-      alertify.error("Enter Your Name");
-      document.getElementById("exampleInputName").focus();
-      return false;
-    }
-    if (document.getElementById("exampleInputPhone1").value == 0) {
-      alertify.error("Enter Your Phone No");
+function register()
+{
+  if (document.getElementById("exampleInputusername1").value == 0) {
+    alertify.error("Enter Username");
+    document.getElementById("exampleInputusername1").focus();
+    return false;
+  }
+  if (document.getElementById("exampleInputPassword1").value == 0) {
+    alertify.error("Enter Password");
+    document.getElementById("exampleInputPassword1").focus();
+    return false;
+  }
+  if (document.getElementById("exampleInputName").value == 0) {
+    alertify.error("Enter Your Name");
+    document.getElementById("exampleInputName").focus();
+    return false;
+  }
+  if (document.getElementById("exampleInputPhone1").value == 0) {
+    alertify.error("Enter Your Phone No");
+    document.getElementById("exampleInputPhone1").focus();
+    return false;
+  }
+  if (document.getElementById("exampleInputPhone1").value.length>0 && document.getElementById("exampleInputPhone1").value.length != 10) {
+      alertify.error("Enter Valid Phone No");
       document.getElementById("exampleInputPhone1").focus();
       return false;
-    }
-    if (document.getElementById("exampleInputPhone1").value.length>0 && document.getElementById("exampleInputPhone1").value.length != 10) {
-        alertify.error("Enter Valid Phone No");
-        document.getElementById("exampleInputPhone1").focus();
-        return false;
-    }
-    if (document.getElementById("department").value == 0) {
-      alertify.error("Select Department");
-      document.getElementById("department").focus();
-      return false;
-    }
-    var payload = {
-      "userName": document.getElementById("exampleInputusername1").value,
-      "userPassword": document.getElementById("exampleInputPassword1").value,
-      "userUsername": document.getElementById("exampleInputName").value,
-      "userPhone": document.getElementById("exampleInputPhone1").value,
-      "userdepartment": document.getElementById("department").value,
-      "userHod": (document.getElementById("exampleInputIshod").checked) ? 1 : 0,
-      "userLevel": (document.getElementById("exampleInputIshod").checked) ? 2 : 4,
-      "userStatus": 1
-    };
-    
-    
+  }
+  if (document.getElementById("department").value == 0) {
+    alertify.error("Select Department");
+    document.getElementById("department").focus();
+    return false;
+  }
+  var payload = {
+    "userName": document.getElementById("exampleInputusername1").value,
+    "userPassword": document.getElementById("exampleInputPassword1").value,
+    "userUsername": document.getElementById("exampleInputName").value,
+    "userPhone": document.getElementById("exampleInputPhone1").value,
+    "userdepartment": document.getElementById("department").value,
+    "userHod": (document.getElementById("exampleInputIshod").checked) ? 1 : 0,
+    "userLevel": (document.getElementById("exampleInputIshod").checked) ? 2 : 4,
+    "userStatus": 1
+  };
+  
   $.ajax({
       type: "POST",
       url: '<?php echo "http://localhost/fms/backend/api/auth/userRegister.php"?>',
@@ -126,14 +118,15 @@
       success: function (responseDatas) 
       {
         var responseData = JSON.parse(responseDatas);
-        if(responseData.error) {
-          alertify.error(responseData.message);
+        if(responseData.flag) {
+          alertify.success(responseData.message);
+          setTimeout(function(){
+            window.location.href = "index.php";
+          }, 2000);
         } else {
-          console.log(responseData);
-          window.location.href = "index.php";
+          alertify.error(responseData.message);
         }
       }
   });
-
 }
 </script>
