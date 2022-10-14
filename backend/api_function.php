@@ -424,6 +424,18 @@
 		return $data; 
 	}
 
+	function  getHodlistservices($con,$table,$identifier,$userid)
+	{
+		$data = array();
+		$sql = "select * from $table where vStatus='1' and $identifier=$userid and iApprovalStatus='1' order by iId desc";
+		$response_query = mysqli_query($con, $sql) or die('Error, No:157');
+		while($res = mysqli_fetch_assoc($response_query))
+		{
+			$data[] = $res;
+		}
+		return $data; 
+	}
+
 	//Function to get ph no from database shripad,nikhil,deepesh
     function fetch_db_ph($table,$ph,$con)
     {
@@ -436,13 +448,5 @@
     function getSessionData()
     {
     	return json_decode($_SESSION['userData'],true);
-    }
-
-    function getMI_user($con)
-    {
-    	$sql =  "select * from users where vstatus='1' and iLevel='3'";
-        $sql_result = mysqli_query($con,$sql);
-        $result = mysqli_fetch_assoc($sql_result);
-    	return $result;
     }
 ?>

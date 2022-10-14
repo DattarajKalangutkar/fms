@@ -5,7 +5,6 @@
   $sessiondata = getSessionData();
   $action_services_type = $api_url.'master/master.php?modules=services_types';
   $data_servies_type = json_decode(file_get_contents($action_services_type),true);
-
   $primary_key = (isset($_GET['id'])) ? $_GET['id']:'';
   $data = [];
   $data["transServiceInwardLetterNo"] = '';
@@ -33,7 +32,19 @@
 ?>
 <?php include "../extra/top_header.php";?>
 <body>
-  
+  <style type="text/css">
+    .textclass{
+      opacity: 1;
+      border: 1px solid #dee2e6;
+      font-weight: 400;
+      font-size: 0.875rem;
+      border-radius: 4px;
+    }
+
+    .marginclass{
+      margin: 0px 20px;
+    }
+  </style>
   <div class="container-scroller">
     <?php include "../extra/_navbar.php";?>
     <div class="container-fluid page-body-wrapper">
@@ -156,15 +167,16 @@
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Remarks</label>
                           <div class="col-sm-9">
-                            <textarea class="form-control" rows="3" id="remark" name="remark" value="<?php echo $data["transdRemarks"]; ?>"></textarea>
+                            <textarea rows="5" class="textclass" cols="53" id="remark" name="remark"><?php echo $data["transdRemarks"]; ?></textarea>
                           </div>
                         </div>
                       </div>
                     </div>
                     <div class="row">
-                      <div class="mt-3">
-                        <input type="button" class="btn btn-inverse-primary btn-fw" onclick="validate()" value="Save">
-                        <a class="btn btn-inverse-light btn-fw" href="services_list.php">Cancel</a>
+                      <div class="col-md-12" style="text-align: center;">
+                        <input type="button" class="btn btn-primary marginclass" onclick="validate(0)" value="Save">
+                        <input type="button" class="btn btn-danger marginclass" onclick="validate(1)" value="Complete">
+                        <a class="btn btn-secondary" href="services_list.php">Cancel</a>
                       </div>
                     </div>
                   </form>
@@ -188,9 +200,8 @@
     method = 'PUT';
     query = '?id='+id;
   }
-  function validate()
+  function validate(statusId)
   {
-
     if (document.getElementById('inwardletterno').value == "") {
       alertify.error("Enter Inward Letter No.");
       document.getElementById('inwardletterno').focus();
@@ -247,45 +258,43 @@
     }
 
     var payload = {
-    "transServiceNo":"00003",
-    "transServiceInwardLetterNo" : document.getElementById('inwardletterno').value,
-    "transdServiceInwardletterDate":moment(document.getElementById('inwardletterdate').value).format("YYYY-MM-DD"),
-    "transdReceivedFrom":document.getElementById('recievedfrom').value,
-    "transServiceId":document.getElementById('servicestype').value,
-    "transdReplyToLetterNo":document.getElementById('replyletterno').value,
-    "transdReplyToLetterDate":moment(document.getElementById('replyletterdate').value).format("YYYY-MM-DD"),
-    "transdReceiptDate":moment(document.getElementById('dateofreceipt').value).format("YYYY-MM-DD"),
-    "transdReplyNo":document.getElementById('replyno').value,
-    "transdReplyDate":moment(document.getElementById('replydate').value).format("YYYY-MM-DD"),
-    "transdRemarks":document.getElementById('remark').value,
-    "transCreated":'<?php echo $sessiondata["userid"]; ?>',
-    "transdSubject":document.getElementById('subject').value,
-    "transdEntryDate":moment(new Date()).format("YYYY-MM-DD"),
-    "transApprovedUser":"<?php echo $sessiondata["reported_to"]['iId']; ?>",
-    "transApprovedStatus":"1",
-    "transStatus":1
-  };
-    
-    
-  $.ajax({
-      type: method,
-      url: '<?php echo "http://localhost/fms/backend/api/transcation/services_form.php"?>'+query,
-      data: JSON.stringify(payload),
-      processData: false,
-      contentType: false,
-      success: function (responseDatas) 
-      {
-        var responseData = JSON.parse(responseDatas);
-        if(responseData.flag) {
-          alertify.success(responseData.message);
-          setTimeout(function(){
-            window.location.href='services_list.php';
-          }, 2000);
-        } else {
-          alertify.error(responseData.message);
-        }     
-      }
-  });
-
-}
+      "transServiceNo":"00003",
+      "transServiceInwardLetterNo" : document.getElementById('inwardletterno').value,
+      "transdServiceInwardletterDate":moment(document.getElementById('inwardletterdate').value).format("YYYY-MM-DD"),
+      "transdReceivedFrom":document.getElementById('recievedfrom').value,
+      "transServiceId":document.getElementById('servicestype').value,
+      "transdReplyToLetterNo":document.getElementById('replyletterno').value,
+      "transdReplyToLetterDate":moment(document.getElementById('replyletterdate').value).format("YYYY-MM-DD"),
+      "transdReceiptDate":moment(document.getElementById('dateofreceipt').value).format("YYYY-MM-DD"),
+      "transdReplyNo":document.getElementById('replyno').value,
+      "transdReplyDate":moment(document.getElementById('replydate').value).format("YYYY-MM-DD"),
+      "transdRemarks":document.getElementById('remark').value,
+      "transCreated":'<?php echo $sessiondata["userid"]; ?>',
+      "transdSubject":document.getElementById('subject').value,
+      "transdEntryDate":moment(new Date()).format("YYYY-MM-DD"),
+      "transApprovedUser":"<?php echo $sessiondata["Hod"]['iId']; ?>",
+      "transApprovedStatus":statusId,
+      "transStatus":1
+    };
+  
+    $.ajax({
+        type: method,
+        url: '<?php echo "http://localhost/fms/backend/api/transcation/services_form.php"?>'+query,
+        data: JSON.stringify(payload),
+        processData: false,
+        contentType: false,
+        success: function (responseDatas) 
+        {
+          var responseData = JSON.parse(responseDatas);
+          if(responseData.flag) {
+            alertify.success(responseData.message);
+            setTimeout(function(){
+              window.location.href='services_list.php';
+            }, 2000);
+          } else {
+            alertify.error(responseData.message);
+          }     
+        }
+    });
+  }
 </script>

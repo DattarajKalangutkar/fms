@@ -84,7 +84,8 @@
 			'type'=>'string',
 			'html'=>'text',
 			'table'=>'1',
-			'decline_phase'=>'1'
+			'decline_phase'=>'1',
+			'approve_phase'=>"1"
 		),
 		'dEntryDate'=>array(
 			'validate'=>'1',
@@ -102,13 +103,14 @@
 			'table'=>'1'
 		),
 		'iApprovedUserId'=>array(
-			'validate'=>'1',
+			'validate'=>'0',
 			'clientname'=>'transApprovedUser',
 			'type'=>'string',
 			'data_fetch'=>'users',
 			'html'=>'dropdown',
 			'table'=>'1',
-			"decline_phase"=>"1"
+			"decline_phase"=>"1",
+			"approve_phase"=>"1"
 		),
 		'iApprovalStatus'=>array(
 			'validate'=>'1',
@@ -116,7 +118,9 @@
 			'type'=>'string',
 			'data_fetch'=>'statusform',
 			'html'=>'dropdown',
-			'table'=>'1'
+			'table'=>'1',
+			"decline_phase"=>"1",
+			"approve_phase"=>"1"
 		),
 		'dCreatedDate'=>array(
 			'validate'=>'0',

@@ -46,7 +46,6 @@
                       <input type="checkbox"  id="exampleInputIshod" class="form-check-input"> Are you a HOD? 
                     <i class="input-helper"></i></label>
                   </div>
-                  
                 </div>
                 <div class="mt-3" style="display: flex;">
                   <button type="button" class="btn btn-inverse-primary btn-fw" onclick="register()">Register</button>

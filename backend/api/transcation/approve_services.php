@@ -11,7 +11,7 @@
 		$sample_array = array();
 		foreach($transcation_config as $key=>$val) //Validation each feilds which are mandatory
 		{
-			if(isset($val['decline_phase']))
+			if(isset($val['approve_phase']))
 			{
 				if($val['validate'] == 1)
 				{
@@ -36,6 +36,9 @@
 					$sample_array[$key] = (isset($postdata[$val['clientname']])) ? $postdata[$val['clientname']]:'';
 			}
         }	
+
+
+        // DFA($sample_array);
 
 		if(updateData($con,$modules,$sample_array,'iId',$id))
 		{

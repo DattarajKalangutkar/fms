@@ -2,6 +2,10 @@
   include "../../backend/api_function.php";
   include "../../backend/api/config_transcation.php";
   $page_title = "Dashboard";
+
+  //DFA(getSessionData());
+
+
 ?>
 <?php include "../extra/top_header.php";?>
 <style>
@@ -24,13 +28,16 @@
       <?php include "../extra/_settings-panel.php";?>
       <?php include "../extra/_sidebar.php";?>
       <div class="main-panel">
-
-      </div>
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="home-tab">
+              </div>
+            </div>
+          </div>
+        </div>
     </div>
   </div>
   <?php include "../extra/bottom_footer.php";?>
 </body>
 </html>
-<script type="text/javascript">
-  console.log(JSON.parse(sessionStorage.getItem('userData')));
-</script>

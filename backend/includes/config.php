@@ -50,5 +50,8 @@
     $boolean_status = array("0"=>"Yes","1"=>"No");
     define('MUN_ID',"3");
 
+    $view_array = [1,2,4,6];
+    $edit_array = [0,3,5];
+
     session_start();
 ?>

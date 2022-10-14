@@ -9,6 +9,8 @@
 		$status = $_GET['status'];
 	if(isset($_GET['user']))
 		$user = $_GET['user'];
+	if(isset($_GET['hod']))
+		$hod_list = $_GET['hod'];
     $postdata = json_decode(file_get_contents("php://input"), true);
 	
 	$temp_get_array = $_GET;
@@ -45,6 +47,36 @@
 		else if(isset($user))
 		{
 			$data_from_db = getspecificServicelistbasedonuser($con,'service_registration_form','iCreatedBy',$user);
+			if(count($data_from_db) > 0)
+			{
+				foreach($data_from_db as $key=>$val)
+				{
+					$sample_array[$key]['id'] = $data_from_db[$key]['iId'];
+					foreach($transcation_config as $keys=>$val)
+					{
+						if($keys == 'vStatus')
+						{
+							$sample_array[$key][$val['clientname']] = $data_from_db[$key][$keys];
+						}
+						else
+						{
+							if(isset($val['data_fetch']))
+							{
+								$sample_array[$key][$val['clientname']] = GETXDATAFROMYID($con,$val['data_fetch'],'vName',$data_from_db[$key][$keys]);
+							}
+							else{
+								$sample_array[$key][$val['clientname']] = $data_from_db[$key][$keys];
+							}
+							//$sample_array[$key][$val['clientname']] = $data_from_db[$key][$keys];
+						}
+					}
+				}	
+			}
+			$count = count($sample_array);
+		}
+		else if(isset($hod_list))
+		{
+			$data_from_db = getHodlistservices($con,'service_registration_form','iApprovedUserId',$hod_list);
 			if(count($data_from_db) > 0)
 			{
 				foreach($data_from_db as $key=>$val)

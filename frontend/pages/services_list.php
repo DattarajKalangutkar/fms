@@ -3,8 +3,17 @@
   include "../../backend/api/config_transcation.php";
   $page_title = "Services List";
   $sessiondata = getSessionData();
-  $action_services_data = $api_url.'transcation/services_list.php?user='.$sessiondata["userid"];
-  $data_servies_data = json_decode(file_get_contents($action_services_data),true);
+  //DFA($sessiondata);
+  if($sessiondata['isHod'] == "1")
+  {
+    $action_services_data = $api_url.'transcation/services_list.php?hod='.$sessiondata["userid"];
+    $data_servies_data = json_decode(file_get_contents($action_services_data),true);
+  }
+  else
+  {
+    $action_services_data = $api_url.'transcation/services_list.php?user='.$sessiondata["userid"];
+    $data_servies_data = json_decode(file_get_contents($action_services_data),true);
+  }  
 ?>
 <?php include "../extra/top_header.php";?>
 <style>
@@ -37,9 +46,16 @@
                 <div class="card-body">
                   <div class="card-innerbody">
                     <h4 class="card-title">Services Registration List</h4>
-                    <a class="btn btn-outline-secondary btn-icon" href="services_form.php">
-                      <i class="mdi mdi-plus text-danger"></i>
-                    </a>
+                    <?php
+                      if($sessiondata['isHod'] == "0")
+                      {
+                    ?>
+                        <a class="btn btn-outline-secondary btn-icon" href="services_form.php">
+                          <i class="mdi mdi-plus text-danger"></i>
+                        </a>
+                    <?php
+                      }
+                    ?>
                   </div>
                   <div class="table-responsive pt-3">
                     <table class="table table-bordered" id="services_list">
@@ -56,6 +72,9 @@
                           </th>
                           <th>
                             Service Type
+                          </th>
+                          <th>
+                            Status
                           </th>
                           <th>
                             Action
@@ -81,8 +100,37 @@
                                 <?php echo $value['transServiceId']['vName'];?>
                               </td>
                               <td>
-                                <a href="services_form.php?id=<?php echo $value['id'];?>">Edit</a>
+                                <?php echo ($value['transApprovedStatus'] == "") ? "Saved":$value['transApprovedStatus']['vName'];?>
                               </td>
+                              <?php
+                                if($sessiondata['isHod'] == "0")
+                                {
+                                  if(in_array($value['transApprovedStatus']['iId'], $edit_array))
+                                  {
+                              ?>
+                                    <td>
+                                      <a href="services_form.php?id=<?php echo $value['id'];?>">Edit</a>
+                                    </td>
+                              <?php
+                                  }
+                                  else
+                                  {
+                              ?>
+                                    <td>
+                                      <a href="services_form_view.php?id=<?php echo $value['id'];?>">View</a>
+                                    </td>
+                              <?php
+                                  }
+                                }
+                                else
+                                {
+                              ?>
+                                  <td>
+                                    <a href="services_form_view.php?id=<?php echo $value['id'];?>">View</a>
+                                  </td>
+                              <?php
+                                }
+                              ?>
                             </tr>
                         <?php 
                           }

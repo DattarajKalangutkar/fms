@@ -39,16 +39,7 @@
 				}
 			}
 
-			if($data['iLevel'] == "4")
-			{
-				$report_to = getMI_user($con);
-			}
-			else
-			{
-				$report_to = "";
-			}
-			
-			$_SESSION['userData'] = json_encode(array("token"=>encodejwt($postdata['userPhone'],$postdata['userPassword']),"flag"=>true,'userid'=>$data['iId'],"level"=>$data['iLevel'],"isMI"=>$isMI,"isHod"=>$isHod,'Hod'=>$Hod,"userData"=>$data,"reported_to"=>$report_to));
+			$_SESSION['userData'] = json_encode(array("token"=>encodejwt($postdata['userPhone'],$postdata['userPassword']),"flag"=>true,'userid'=>$data['iId'],"level"=>$data['iLevel'],"isHod"=>$isHod,'Hod'=>$Hod,"userData"=>$data));
 
 			header("location:dashboard.php");
 			exit;
