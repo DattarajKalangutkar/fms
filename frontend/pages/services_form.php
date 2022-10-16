@@ -39,6 +39,7 @@
       font-weight: 400;
       font-size: 0.875rem;
       border-radius: 4px;
+      width: 100%;
     }
 
     .marginclass{
@@ -92,12 +93,12 @@
                             <select class="js-example-basic-single w-100" id="servicestype" name="servicestype" >
                               <option value="0">Select the Type</option>
                               <?php
-                                  $selected = '';
+                                $selected = '';
                                 foreach($data_servies_type['rows'] as $key=>$value)
                                 {
-                               if ($data["transServiceId"]["iId"] == $value["id"]) {
-                                  $selected = 'selected';
-                               }   
+                                  if($data["transServiceId"]["iId"] == $value["id"]) {
+                                    $selected = 'selected';
+                                }   
                               ?>
                                   <option value="<?php echo $value['id'];?>" <?php echo $selected; ?>><?php echo $value['serviceTypeName'];?></option>
                               <?php
@@ -167,7 +168,7 @@
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Remarks</label>
                           <div class="col-sm-9">
-                            <textarea rows="5" class="textclass" cols="53" id="remark" name="remark"><?php echo $data["transdRemarks"]; ?></textarea>
+                            <textarea rows="5" class="textclass" id="remark" name="remark"><?php echo $data["transdRemarks"]; ?></textarea>
                           </div>
                         </div>
                       </div>

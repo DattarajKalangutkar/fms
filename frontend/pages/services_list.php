@@ -3,7 +3,6 @@
   include "../../backend/api/config_transcation.php";
   $page_title = "Services List";
   $sessiondata = getSessionData();
-  //DFA($sessiondata);
   if($sessiondata['isHod'] == "1")
   {
     $action_services_data = $api_url.'transcation/services_list.php?hod='.$sessiondata["userid"];

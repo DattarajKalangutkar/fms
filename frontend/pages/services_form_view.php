@@ -39,6 +39,7 @@
       font-weight: 400;
       font-size: 0.875rem;
       border-radius: 4px;
+      width: 100%;
     }
 
     .marginclass{
@@ -157,7 +158,7 @@
                             <div class="form-group row">
                               <label class="col-sm-3 col-form-label">Remarks</label>
                               <div class="col-sm-9">
-                                <textarea rows="5" class="textclass" disabled="true" cols="53" id="remark" name="remark"><?php echo $data["transdRemarks"]; ?></textarea>
+                                <textarea rows="5" class="textclass" disabled="true" id="remark" name="remark"><?php echo $data["transdRemarks"]; ?></textarea>
                               </div>
                             </div>
                           </div>
@@ -170,7 +171,7 @@
                             <div class="form-group row">
                               <label class="col-sm-3 col-form-label">Remarks</label>
                               <div class="col-sm-9">
-                                <textarea rows="5" class="textclass" cols="53" id="remark" name="remark"><?php echo $data["transdRemarks"]; ?></textarea>
+                                <textarea rows="5" class="textclass"  id="remark" name="remark"><?php echo $data["transdRemarks"]; ?></textarea>
                               </div>
                             </div>
                           </div>
