@@ -196,12 +196,14 @@
                     <div class="row">
                       <div class="col-md-12" style="text-align: center;">
                         <?php
-                          if($sessiondata["isHod"])
+                          if($sessiondata["isHod"] || $sessiondata["level"] == "1")
                           {
+                          $statusApprovedId = ($sessiondata["level"] == "1")  ? 4 : 2;
+                          $statusDeclineId = ($sessiondata["level"] == "1")  ? 5 : 3;
                         ?>
                             <div id="buttonforhod" style="display:block;">
-                              <input type="button" class="btn btn-primary marginclass" onclick="approveService(2)" value="Approve">
-                              <input type="button" class="btn btn-danger marginclass" onclick="declineService(3)" value="Decline">
+                              <input type="button" class="btn btn-primary marginclass" onclick="approveService(<?php echo $statusApprovedId; ?>)" value="Approve">
+                              <input type="button" class="btn btn-danger marginclass" onclick="declineService(<?php echo $statusDeclineId; ?>)" value="Decline">
                             </div>
                             <div id="buttonforsuperadmin" style="display:none;">
                               <input type="button" class="btn btn-primary marginclass" onclick="approveService(7)" value="Send to Admin">
@@ -247,7 +249,8 @@
 
   function approveService(id)
   {
-    if(document.getElementById('sendforapproval').checked)
+    
+    if(document.getElementById('sendforapproval') && document.getElementById('sendforapproval').checked)
     {
       var payload = {
         "transdRemarks":document.getElementById('remark').value,
@@ -289,7 +292,7 @@
 
   function declineService(id)
   {
-    if(document.getElementById('sendforapproval').checked)
+    if(document.getElementById('sendforapproval') && document.getElementById('sendforapproval').checked)
     {
       var payload = {
         "transdRemarks":document.getElementById('remark').value,

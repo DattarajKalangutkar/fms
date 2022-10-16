@@ -3,9 +3,9 @@
   include "../../backend/api/config_transcation.php";
   $page_title = "Services List";
   $sessiondata = getSessionData();
-  //DFA($sessiondata);
+  
   if ($sessiondata['level'] == "1") {
-    $action_services_data = $api_url.'transcation/services_list.php?hod='.$sessiondata["userid"];
+    $action_services_data = $api_url.'transcation/services_list.php?admin='.$sessiondata["userid"];
     $data_servies_data = json_decode(file_get_contents($action_services_data),true);
   } else if($sessiondata['isHod'] == "1") {
     $action_services_data = $api_url.'transcation/services_list.php?hod='.$sessiondata["userid"];
