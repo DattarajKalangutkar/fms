@@ -436,6 +436,18 @@
 		return $data; 
 	}
 
+	function  getAdminlistservices($con,$table,$identifier,$userid)
+	{
+		$data = array();
+		$sql = "select * from $table where vStatus='1' and $identifier=$userid and iApprovalStatus='7' order by iId desc";
+		$response_query = mysqli_query($con, $sql) or die('Error, No:157');
+		while($res = mysqli_fetch_assoc($response_query))
+		{
+			$data[] = $res;
+		}
+		return $data; 
+	}
+
 	//Function to get ph no from database shripad,nikhil,deepesh
     function fetch_db_ph($table,$ph,$con)
     {
