@@ -184,7 +184,7 @@
                         <div class="form-group">
                           <div class="form-check">
                             <label class="form-check-label">
-                              <input type="checkbox" id="sendforapproval" class="form-check-input"> You Want to send to SuperAdmin for Approval?
+                              <input type="checkbox" id="sendforapproval" class="form-check-input" onChange="WsCheckHODStatus()"> You Want to send to SuperAdmin for Approval?
                             <i class="input-helper"></i></label>
                           </div>
                         </div>
@@ -199,8 +199,13 @@
                           if($sessiondata["isHod"])
                           {
                         ?>
-                            <input type="button" class="btn btn-primary marginclass" onclick="approveService(2)" value="Approve">
-                            <input type="button" class="btn btn-danger marginclass" onclick="declineService(3)" value="Decline">
+                            <div id="buttonforhod" style="display:block;">
+                              <input type="button" class="btn btn-primary marginclass" onclick="approveService(2)" value="Approve">
+                              <input type="button" class="btn btn-danger marginclass" onclick="declineService(3)" value="Decline">
+                            </div>
+                            <div id="buttonforsuperadmin" style="display:none;">
+                              <input type="button" class="btn btn-primary marginclass" onclick="approveService(7)" value="Send to Admin">
+                            </div>
                         <?php  
                           }
                         ?>
@@ -229,6 +234,17 @@
     query = '?id='+id;
   }
 
+  function WsCheckHODStatus() {
+    if (document.getElementById('sendforapproval').checked) {
+      document.getElementById('buttonforhod').style.display = 'none';
+      document.getElementById('buttonforsuperadmin').style.display = 'block';
+    } else {
+      document.getElementById('buttonforhod').style.display = 'block';
+      document.getElementById('buttonforsuperadmin').style.display = 'none';
+    }
+  }
+  
+
   function approveService(id)
   {
     if(document.getElementById('sendforapproval').checked)
@@ -239,6 +255,7 @@
         "transApprovedStatus":id,
         "transStatus":1
       };
+      
     }
     else
     {

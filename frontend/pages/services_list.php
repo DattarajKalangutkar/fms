@@ -3,13 +3,14 @@
   include "../../backend/api/config_transcation.php";
   $page_title = "Services List";
   $sessiondata = getSessionData();
-  if($sessiondata['isHod'] == "1")
-  {
+  //DFA($sessiondata);
+  if ($sessiondata['level'] == "1") {
     $action_services_data = $api_url.'transcation/services_list.php?hod='.$sessiondata["userid"];
     $data_servies_data = json_decode(file_get_contents($action_services_data),true);
-  }
-  else
-  {
+  } else if($sessiondata['isHod'] == "1") {
+    $action_services_data = $api_url.'transcation/services_list.php?hod='.$sessiondata["userid"];
+    $data_servies_data = json_decode(file_get_contents($action_services_data),true);
+  } else {
     $action_services_data = $api_url.'transcation/services_list.php?user='.$sessiondata["userid"];
     $data_servies_data = json_decode(file_get_contents($action_services_data),true);
   }  
