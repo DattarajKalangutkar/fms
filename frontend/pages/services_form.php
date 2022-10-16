@@ -5,6 +5,7 @@
   $sessiondata = getSessionData();
   $action_services_type = $api_url.'master/master.php?modules=services_types';
   $data_servies_type = json_decode(file_get_contents($action_services_type),true);
+  $getDepartmentbased = getDepartmentbased($data_servies_type,$sessiondata['department']); 
   $primary_key = (isset($_GET['id'])) ? $_GET['id']:'';
   $data = [];
   $data["transServiceInwardLetterNo"] = '';
@@ -94,14 +95,18 @@
                               <option value="0">Select the Type</option>
                               <?php
                                 $selected = '';
-                                foreach($data_servies_type['rows'] as $key=>$value)
+                                foreach($getDepartmentbased as $key=>$value)
                                 {
-                                  if($data["transServiceId"]["iId"] == $value["id"]) {
-                                    $selected = 'selected';
-                                }   
+                                  if($value["id"])
+                                  {
+                                    if(isset($data["transServiceId"]["iId"]) && $data["transServiceId"]["iId"] == $value["id"]) 
+                                    {
+                                      $selected = 'selected';
+                                    }   
                               ?>
                                   <option value="<?php echo $value['id'];?>" <?php echo $selected; ?>><?php echo $value['serviceTypeName'];?></option>
                               <?php
+                                  }
                                 }
                               ?>
                             </select>

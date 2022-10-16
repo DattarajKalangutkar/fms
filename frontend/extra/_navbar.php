@@ -1,6 +1,11 @@
 <?php
- $sessiondata1 = getSessionData();
-
+   $sessiondata1 = getSessionData();
+   if($sessiondata1['level'] == "1")
+      $role = "Admin";
+   else if($sessiondata1['level'] == "2")
+      $role = "Hod";
+   else
+      $role = 'User';
 ?>
 <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex align-items-top flex-row">
    <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-start">
@@ -14,7 +19,7 @@
       <ul class="navbar-nav">
           <li class="nav-item font-weight-semibold d-none d-lg-block ms-0">
             <h1 class="welcome-text">Hi, <span class="text-black fw-bold"><?php echo $sessiondata1["userData"]["vUsername"];?></span></h1>
-            <h3 class="welcome-sub-text">Role:Hod</h3>
+            <h3 class="welcome-sub-text">Role:<?php echo $role;?></h3>
           </li>
         </ul>
       <ul class="navbar-nav ms-auto">

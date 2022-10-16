@@ -21,6 +21,7 @@
 		if(validate_with_db('users',$postdata['userPhone'],$postdata['userPassword'],$con))
 		{
 			$data = getuserdata('users',$postdata['userPhone'],$postdata['userPassword'],$con,'iId');
+			$getuserDepartmentId = $data['iDepartmentId'];
 			$isMI = ($data['iLevel'] == "3") ? true:false;
 			$isHod = ($data['iLevel'] == "2") ? true:false;	
 			if($isMI)
@@ -39,7 +40,7 @@
 				}
 			}
 
-			$_SESSION['userData'] = json_encode(array("token"=>encodejwt($postdata['userPhone'],$postdata['userPassword']),"flag"=>true,'userid'=>$data['iId'],"level"=>$data['iLevel'],"isHod"=>$isHod,'Hod'=>$Hod,"userData"=>$data));
+			$_SESSION['userData'] = json_encode(array("token"=>encodejwt($postdata['userPhone'],$postdata['userPassword']),"flag"=>true,'userid'=>$data['iId'],"level"=>$data['iLevel'],"isHod"=>$isHod,'Hod'=>$Hod,"userData"=>$data,"department"=>$getuserDepartmentId));
 
 			header("location:dashboard.php");
 			exit;

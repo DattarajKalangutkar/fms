@@ -457,6 +457,22 @@
         return ($end > 0) ? true : false;
     }
 
+    function getDepartmentbased($data,$id)
+    {
+
+    	$data_dept = array();
+    	foreach($data['rows'] as $key=>$value)
+    	{
+    		if($value['serviceTypeDepartment']['iId'] == $id)
+    			$data_dept[] = $value;
+    	}
+
+    	if($id == 0)
+    		return $data;
+    	else
+    		return $data_dept;
+    }
+
     function getSessionData()
     {
     	return json_decode($_SESSION['userData'],true);
