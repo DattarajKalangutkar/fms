@@ -108,7 +108,7 @@
 		}
 		else if(isset($admin_list))
 		{
-			$data_from_db = getAdminlistservices($con,'service_registration_form','iApprovedUserId',$hod_list);
+			$data_from_db = getAdminlistservices($con,'service_registration_form','iApprovedUserId',$admin_list);
 			if(count($data_from_db) > 0)
 			{
 				foreach($data_from_db as $key=>$val)
