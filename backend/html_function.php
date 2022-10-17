@@ -5,11 +5,14 @@
 		if($type == 'dropdown')
 		{
 			$full_data = getalldata($con,$data['data_fetch'],'');
-			$str .= "<select class='form-control form-control-user' id='$iden' name='$iden'>";
+			$str .= "<select class='js-example-basic-single w-100' id='$iden' name='$iden'>";
 			$str .= "<option value='0'>Select an Option</option>";
 			foreach($full_data as $key=>$value)
 			{
-				$selected = ($value['iId'] == $val) ? 'selected':'';
+				if($val != '')
+					$selected = ($value['iId'] == $val['iId']) ? 'selected':'';
+				else
+					$selected = '';
 				$str .= "<option value='".$value['iId']."' $selected>".$value['vName']."</option>";
 			}
 			$str .= "</select>";
@@ -35,7 +38,7 @@
 		}
 		else
 		{
-			$str .="<input id='$iden' name='$iden' class='form-control form-control-user' type='$type' autocomplete='off' required='$req' value='$val'>";
+			$str .='<input type="text" class="form-control" id="'.$iden.'" name="'.$iden.'" value="'.$val.'" />';
 		}
 		return $str;
 	}
@@ -54,16 +57,17 @@
 	{
 		$str = '';
 		$count = 0;
-		$str .= '<div class="table-responsive">';
-		$str .= '<table class="table table-bordered" id="myTable" width="100%" cellspacing="0">';
+		$str .= '<div class="table-responsive pt-3">';
+		$str .= '<table class="table table-bordered" id="master_list">';
 		$str .= '<thead>';
 		$str .= '<tr>';
+		$str .= '<th>Sr.No</th>';
 		foreach($head as $key => $value) 
 		{
 			if($value['table'] == '1')
 			{	
 				$count++;
-				$str .= '<th>'.$value['clientname'].'</th>';
+				$str .= '<th>'.$value['displayName'].'</th>';
 			}
 		}
 		$str .= '<th>Action</th>';
@@ -75,6 +79,7 @@
 			foreach ($data as $parent => $val) 
 			{
 				$str .= '<tr>';
+				$str .= '<td>'.($parent+1).'</td>';
 				foreach($head as $child => $value) 
 				{
 					if($value['table'] == '1')

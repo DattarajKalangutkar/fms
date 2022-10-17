@@ -4,6 +4,7 @@
 			'vName'=>array(
 				'validate'=>'1',
 				'clientname'=>'departmentName',
+				'displayName'=>"Name",
 				'type'=>'string',
 				'html'=>'text',
 				'table'=>'1',
@@ -12,6 +13,7 @@
 			'dCreatedDate'=>array(
 				'validate'=>'0',
 				'clientname'=>'createdDate',
+				'displayName'=>"Date",
 				'type'=>'string',
 				'html'=>'',
 				'table'=>'1'
@@ -19,6 +21,7 @@
 			'vStatus'=>array(
 				'validate'=>'1',
 				'clientname'=>'departmentStatus',
+				'displayName'=>"Status",
 				'type'=>'string',
 				'html'=>'',
 				'table'=>'0'
@@ -28,6 +31,7 @@
 			'vName'=>array(
 				'validate'=>'1',
 				'clientname'=>'statusformName',
+				'displayName'=>"Name",
 				'type'=>'string',
 				'html'=>'text',
 				'table'=>'1',
@@ -36,6 +40,7 @@
 			'dCreatedDate'=>array(
 				'validate'=>'0',
 				'clientname'=>'createdDate',
+				'displayName'=>"Date",
 				'type'=>'string',
 				'html'=>'',
 				'table'=>'1'
@@ -43,6 +48,7 @@
 			'vStatus'=>array(
 				'validate'=>'1',
 				'clientname'=>'statusformStatus',
+				'displayName'=>"Status",
 				'type'=>'string',
 				'html'=>'',
 				'table'=>'0'
@@ -52,6 +58,7 @@
 			'vName'=>array(
 				'validate'=>'1',
 				'clientname'=>'serviceTypeName',
+				'displayName'=>"Name",
 				'type'=>'string',
 				'html'=>'text',
 				'table'=>'1',
@@ -60,6 +67,7 @@
 			'iDepartmentId'=>array(
 				'validate'=>'1',
 				'clientname'=>'serviceTypeDepartment',
+				'displayName'=>"Department Name",
 				'type'=>'string',
 				'data_fetch'=>'department',
 				'html'=>'dropdown',
@@ -68,6 +76,7 @@
 			'dCreatedDate'=>array(
 				'validate'=>'0',
 				'clientname'=>'createdDate',
+				'displayName'=>"Date",
 				'type'=>'string',
 				'html'=>'',
 				'table'=>'1'
@@ -75,6 +84,7 @@
 			'vStatus'=>array(
 				'validate'=>'1',
 				'clientname'=>'serviceTypeStatus',
+				'displayName'=>"Status",
 				'type'=>'string',
 				'html'=>'',
 				'table'=>'0'

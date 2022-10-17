@@ -27,7 +27,8 @@
                </a>
                <div class="collapse" id="form-elements" style="">
                  <ul class="nav flex-column sub-menu">
-                   <li class="nav-item"><a class="nav-link" href="<?php echo $site_url;?>pages/services_list.php">Department</a></li>
+                   <li class="nav-item"><a class="nav-link" href="<?php echo $site_url;?>pages/master_list.php?type=department">Department</a></li>
+                   <li class="nav-item"><a class="nav-link" href="<?php echo $site_url;?>pages/master_list.php?type=services_types">Services Type</a></li>
                  </ul>
                </div>
             </li>

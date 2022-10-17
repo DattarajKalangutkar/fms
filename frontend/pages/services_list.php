@@ -3,7 +3,11 @@
   include "../../backend/api/config_transcation.php";
   $page_title = "Services List";
   $sessiondata = getSessionData();
-  
+  if(!isset($sessiondata['userData']))
+  {
+    header("location:index.php");
+    exit;
+  }
   if ($sessiondata['level'] == "1") {
     $action_services_data = $api_url.'transcation/services_list.php?admin='.$sessiondata["userid"];
     $data_servies_data = json_decode(file_get_contents($action_services_data),true);

@@ -6,7 +6,6 @@
   $action_services_type = $api_url.'master/master.php?modules=services_types';
   $data_servies_type = json_decode(file_get_contents($action_services_type),true);
   $getDepartmentbased = getDepartmentbased($data_servies_type,$sessiondata['department']); 
-
   $primary_key = (isset($_GET['id'])) ? $_GET['id']:'';
   $data = [];
   $data["transServiceInwardLetterNo"] = '';
@@ -152,14 +151,27 @@
                     </div>
                     <div class="row">
                       <?php 
-                        if($sessiondata["isHod"] == "0")
+                        if($sessiondata["level"] == "4" || $sessiondata["level"] == "1")
                         {
                       ?>
                           <div class="col-md-6">
                             <div class="form-group row">
                               <label class="col-sm-3 col-form-label">Remarks</label>
                               <div class="col-sm-9">
-                                <textarea rows="5" class="textclass" disabled="true" id="remark" name="remark"><?php echo $data["transdRemarks"]; ?></textarea>
+                                <?php 
+                                  if($sessiondata["level"] == "4")
+                                  {
+                                ?>
+                                    <textarea rows="5" class="textclass" disabled="true" id="remark" name="remark"><?php echo $data["transdRemarks"];?></textarea>
+                                <?php 
+                                  }
+                                  else
+                                  {
+                                ?>
+                                    <textarea rows="5" class="textclass" id="remark" name="remark"><?php echo $data["transdRemarks"];?></textarea>
+                                <?php
+                                  }
+                                ?>
                               </div>
                             </div>
                           </div>
@@ -172,7 +184,7 @@
                             <div class="form-group row">
                               <label class="col-sm-3 col-form-label">Remarks</label>
                               <div class="col-sm-9">
-                                <textarea rows="5" class="textclass"  id="remark" name="remark"><?php echo $data["transdRemarks"]; ?></textarea>
+                                <textarea rows="5" class="textclass" id="remark" name="remark"><?php echo $data["transdRemarks"]; ?></textarea>
                               </div>
                             </div>
                           </div>
@@ -199,20 +211,29 @@
                         <?php
                           if($sessiondata["isHod"] || $sessiondata["level"] == "1")
                           {
-                          $statusApprovedId = ($sessiondata["level"] == "1")  ? 4 : 2;
-                          $statusDeclineId = ($sessiondata["level"] == "1")  ? 5 : 3;
+                            $statusApprovedId = ($sessiondata["level"] == "1")  ? 4 : 2;
+                            $statusDeclineId = ($sessiondata["level"] == "1")  ? 5 : 3;
                         ?>
                             <div id="buttonforhod" style="display:block;">
                               <input type="button" class="btn btn-primary marginclass" onclick="approveService(<?php echo $statusApprovedId; ?>)" value="Approve">
                               <input type="button" class="btn btn-danger marginclass" onclick="declineService(<?php echo $statusDeclineId; ?>)" value="Decline">
+                              <a class="btn btn-secondary" href="services_list.php">Cancel</a>
                             </div>
                             <div id="buttonforsuperadmin" style="display:none;">
                               <input type="button" class="btn btn-primary marginclass" onclick="approveService(7)" value="Send to Admin">
+                              <a class="btn btn-secondary" href="services_list.php">Cancel</a>
                             </div>
                         <?php  
                           }
+                          else
+                          {
                         ?>
-                        <a class="btn btn-secondary" href="services_list.php">Cancel</a>
+                            <div>
+                              <a class="btn btn-secondary" href="services_list.php">Cancel</a>
+                            </div>
+                        <?php 
+                          }
+                        ?>
                       </div>
                     </div>
                   </form>
