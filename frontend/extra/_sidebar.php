@@ -11,7 +11,7 @@
       </li>
       <li class="nav-item">
          <a class="nav-link" href="<?php echo $site_url;?>pages/services_list.php">
-         <i class="mdi mdi-Table mdi-grid-large menu-icon"></i>
+         <i class="menu-icon mdi mdi-table"></i>
          <span class="menu-title">List</span>
          </a>
       </li>

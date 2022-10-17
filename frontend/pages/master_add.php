@@ -108,7 +108,7 @@
 					{
 						if(document.getElementById("forchangingforImage").value == "")
 						{
-							alert(validate_array[key_feilds[i]]['clientname']+" is required");
+							alertify.error(validate_array[key_feilds[i]]['displayName']+" is required");
 							return;
 						}
 					}
@@ -118,7 +118,7 @@
 						{
 							if(document.getElementById(validate_array[key_feilds[i]]['clientname']).value == "0")
 							{
-								alert(validate_array[key_feilds[i]]['clientname']+" is required");
+								alertify.error(validate_array[key_feilds[i]]['displayName']+" is required");
 								return;
 							}
 						}
@@ -126,7 +126,7 @@
 						{
 							if(document.getElementById(validate_array[key_feilds[i]]['clientname']).value == "")
 							{
-								alert(validate_array[key_feilds[i]]['clientname']+" is required");
+								alertify.error(validate_array[key_feilds[i]]['displayName']+" is required");
 								return;
 							}
 						}
