@@ -1,0 +1,915 @@
+.card-innerbody {
+    display: flex;
+    justify-content: space-between;
+}
+
+.odd {
+    height: 20px !important;
+    background: #eee;
+}
+
+.even {
+    height: 20px;
+    background: #b4d6d3;
+}
+
+.form-check {
+    position: relative;
+    display: inline-block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-left: 0;
+}
+
+.table,
+.table td {
+    text-align: center;
+    line-height: 1;
+    white-space: nowrap;
+    padding: 0rem 0rem;
+}
+
+.input {
+    padding: 7px !important;
+}
+
+
+/* Rama --> Hover input field*/
+
+.input-containers {
+    position: relative;
+    margin: 0.6rem 0;
+}
+
+.input-containers label {
+    position: absolute;
+    top: 50%;
+    left: 25px;
+    transform: translateY(-50%);
+    padding: 0 0.4rem;
+    color: #000000;
+    font-size: 0.9rem;
+    font-weight: 400;
+    pointer-events: none;
+    z-index: 1000;
+    transition: 0.5s;
+}
+
+.input-containers.textarea label {
+    top: 1rem;
+    transform: translateY(0);
+}
+
+.input-containers span {
+    position: absolute;
+    top: 0;
+    left: 25px;
+    transform: translateY(-50%);
+    font-size: 0.8rem;
+    padding: 0 0.4rem;
+    color: transparent;
+    pointer-events: none;
+    z-index: 500;
+}
+
+.input-containers span:before,
+.input-containers span:after {
+    content: "";
+    position: absolute;
+    width: 10%;
+    opacity: 0;
+    transition: 0.3s;
+    height: 5px;
+    background-color: #ffffff;
+    top: 50%;
+    transform: translateY(-50%);
+    border: #ffffff 2px solid;
+}
+
+.input-containers span:before {
+    left: 50%;
+}
+
+.input-containers span:after {
+    right: 50%;
+}
+
+.input-containers.focus label {
+    top: 0;
+    transform: translateY(-50%);
+    left: 25px;
+    font-size: 0.8rem;
+}
+
+.input-containers.focus span:before,
+.input-containers.focus span:after {
+    width: 50%;
+    opacity: 1;
+}
+
+
+/* Rama --> Hover input field ---> end*/
+
+.card-innerbody {
+    display: flex;
+    justify-content: space-between;
+}
+
+.odd {
+    height: 50px !important;
+    background: #eee;
+}
+
+
+/* Mayur_CSS */
+
+
+/*  icon css */
+
+.icon_bttn {
+    padding-top: 8px;
+}
+
+.icon_bttn a {
+    font-size: x-large;
+    padding: 4px 8px;
+}
+
+.icon_bttn a:hover {
+    background-color: #e0e0e682;
+    padding: 5px 10px;
+    border-radius: 25px;
+}
+
+.icon_btn_item {
+    padding-top: 8px;
+}
+
+.icon_btn_item a {
+    font-size: initial;
+    padding: 4px 8px;
+}
+
+.icon_btn_item a:hover {
+    background-color: #e0e0e682;
+    padding: 5px 10px;
+    border-radius: 25px;
+}
+
+.icon_button {
+    padding-top: 8px;
+}
+
+.icon_button a {
+    font-size: x-large;
+    padding: 5px 10px;
+    border-radius: 20px;
+    box-shadow: 1px 1px #72728b;
+}
+
+.icon_button a:hover {
+    background-color: #3434ba;
+    color: white;
+}
+
+.icon_btn {
+    margin: 5px;
+    color: #000000a6;
+}
+
+.icon_btn:hover {
+    color: #000000;
+}
+
+.sec_btn {
+    background-color: blue;
+    color: white;
+    display: table-cell;
+}
+
+
+/* label css */
+
+label.small_font {
+    font-size: 12px;
+    font-weight: 400;
+    padding: 0 5px;
+}
+
+
+/* label css */
+
+.group_fields {
+    display: flex;
+}
+
+.group_fields .icon_button {
+    margin: 0 0.5rem;
+}
+
+.account_field {
+    display: flex;
+}
+
+.account_field .child5,
+.account_field .child4,
+.account_field .child3,
+.account_field .child2,
+.account_field .child {
+    width: 12% !important;
+    /* width: 9.5rem; * !important */
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.account_field .child4 {
+    width: 9% !important;
+    /* width: 6rem; * !important */
+}
+
+.account_field .child {
+    /* width: 7rem; * !important */
+    width: 10% !important;
+}
+
+.account_field .child3 {
+    /* width: 7.9rem; * !important */
+    width: 10.7% !important;
+}
+
+.account_field .child5 {
+    /* width: 8.7rem; * !important */
+    width: 11.2% !important;
+}
+
+.account_field .select2-container .select2-selection--single .select2-selection__rendered {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+.custom_btn {
+    margin: 5px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    background-color: #e6e0f6;
+    font-size: 10px;
+    font-weight: 600;
+    box-shadow: 1px 2px #67676766;
+}
+
+.custom_btn:hover {
+    background-color: #1c1e79c2;
+    color: white;
+    font-weight: 600;
+}
+
+.custom_btn.secondary {
+    color: black;
+}
+
+.custom_btn.secondary:hover {
+    color: white;
+    background-color: rgba(0, 0, 46, 0.839);
+}
+
+.custom_btn_resize {
+    padding: 5px 12px !important;
+    margin: 10px 5px !important;
+    width: fit-content !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    line-height: 15px !important;
+}
+
+.custom_btn_resize.btn-light:hover {
+    background-color: #dcdcdc;
+    color: #2a2a2a;
+}
+
+
+/* Timeline */
+
+.js .cd-h-timeline__container.timeline_css {
+    height: 60px !important;
+}
+
+
+/* purchase table, local purchase history ------------------------------------------ */
+
+.history-list .dataTables_wrapper,
+.purchase-list .dataTables_wrapper {
+    overflow-x: scroll;
+}
+
+.history-list .dataTables_wrapper .dataTable thead th,
+.purchase-list .dataTables_wrapper .dataTable thead th {
+    font-size: 12px !important;
+    padding: 10px 2px !important;
+}
+
+.sticky_col {
+    position: sticky !important;
+    background-color: white;
+    left: 0;
+    top: auto;
+    margin-top: -1px;
+    z-index: 1;
+}
+
+.sticky_col.sc_1 {
+    left: 44px !important;
+}
+
+
+/* purchase table ------------------------------------------ */
+
+
+/* Item Table */
+
+.item-group {
+    padding: 20px 10px;
+}
+
+.item-box {
+    margin-bottom: 10px;
+}
+
+.item-group .item-box {
+    height: 300px;
+    overflow: scroll;
+    margin-right: -13px;
+}
+
+.text_wrap {
+    white-space: pre-wrap !important;
+}
+
+.purchase-list table thead tr th,
+.history-list table thead tr th,
+.item-group table thead tr th {
+    width: 36px;
+    background-color: #233C65;
+    color: white;
+    padding: 10px 4px;
+    font-size: 11px;
+    font-weight: 800;
+    line-height: 12px;
+}
+
+.item-group table thead tr th.item_wt {
+    /* min-width: 50px !important; */
+    width: 8% !important;
+}
+
+.item-group table thead tr th.drop {
+    /* width: fit-content; */
+    width: 39% !important;
+}
+
+.item-group table tbody tr td {
+    padding: 4px 0px;
+    font-size: 10px;
+}
+
+.item-group table tbody tr td input {
+    padding: 0px 2px;
+    height: 25px;
+    margin: 0px;
+}
+
+.item-group table tbody tr td label {
+    font-size: 10px !important;
+}
+
+.item-group table tbody tr td .weight_col {
+    width: 91%;
+    margin: 0 1px;
+}
+
+.item-group table tbody tr td .scale_read .select2-container {
+    margin: 10px 5px;
+}
+
+.item-group table tbody tr td .scale_read .px_0 {
+    padding: 0 !important;
+}
+
+.item-group .scale_read .select2.select2-container.select2-container--default {
+    width: 40% !important;
+}
+
+.item-group table tbody tr td .scale_read .custom_btn.px3 {
+    padding: 0 7px !important;
+}
+
+.item-group .select2-container--default .select2-selection--single .select2-selection__arrow {
+    top: 10px !important;
+}
+
+.scale_read .select2-container--default .select2-selection--single .select2-selection__arrow {
+    right: 16px !important;
+}
+
+
+/* icon colors */
+
+.fa-images,
+.fa-trash-alt,
+.fa-pencil-alt {
+    font-size: small;
+    color: black;
+}
+
+.fa-trash-alt {
+    color: red;
+}
+
+
+/* searchable Dropdown */
+
+.item-group .select2-selection--single {
+    height: 24px !important;
+    padding: 4px !important;
+    font-size: 11px !important;
+}
+
+.custom_dropdown {
+    padding: 5px;
+    margin: 5px 0;
+    width: 100%;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    top: 18px !important;
+}
+
+.sku_unit {
+    background: rgb(224, 224, 224);
+    border-radius: 7px;
+    padding: 3px;
+    font-size: 9px;
+}
+
+.creater {
+    text-align: end;
+}
+
+.creater span {
+    font-size: medium;
+    padding: 10px 10px 0 30px;
+}
+
+.btn-width {
+    width: 95% !important;
+    padding: 10px !important;
+}
+
+.btn_width {
+    padding: 13px 0 !important;
+    width: 29% !important;
+}
+
+.btn_h {
+    height: 43px !important;
+}
+
+.px_5 {
+    padding: 0 5px 0 0 !important;
+}
+
+.pr_10 {
+    padding: 0 10px 0 0 !important;
+}
+
+.px_0 {
+    padding: 10px 1px !important;
+}
+
+.p_10 {
+    padding: 10px 0px 0 5px;
+}
+
+.p_20 {
+    padding: 20px;
+}
+
+.c_mt-06 {
+    margin-top: 0.6rem !important;
+}
+
+.m_0 {
+    margin: 0px;
+}
+
+.mt_10 {
+    margin-top: 10px;
+}
+
+.my_10 {
+    margin: 10px 0 !important;
+}
+
+.mt_7 {
+    margin-top: 7px !important;
+}
+
+.mt_18 {
+    margin: 18px 0 !important;
+}
+
+.m_wrapper {
+    margin: 1em 2em 0em;
+}
+
+.m_15rem {
+    margin: 1.5rem 0.1rem;
+}
+
+.font20 {
+    font-size: 20px;
+}
+
+.font22 {
+    font-size: 22px;
+}
+
+
+/* multiselect */
+
+.select2-container--default .select2-selection--multiple .select2-selection__rendered {
+    margin: 5px !important;
+}
+
+.select2.select2-container.select2-container--default {
+    width: 100% !important;
+}
+
+
+/* Advance Search Filter*/
+
+.search-filter {
+    position: absolute;
+    top: 3%;
+    left: 32%;
+    background-color: #f7f7f7;
+    box-shadow: 2px 2px #eee;
+    border: 1px solid #EEE;
+    z-index: 90;
+    width: 50%;
+}
+
+.search-filter .account_field:hover {
+    cursor: pointer;
+}
+
+
+/* color */
+
+.c-red,
+.c-red input {
+    color: red;
+}
+
+.c-blue,
+.c-blue input {
+    color: blue;
+}
+
+.c-green,
+.c-green input {
+    color: green;
+}
+
+.c-grey {
+    color: #4d514f;
+}
+
+
+/*purchase create ui */
+
+.purchase .card-title {
+    margin: 0;
+}
+
+
+/* flexible input field */
+
+.min_width {
+    width: 33.3%;
+}
+
+.min_width_2 {
+    width: 27%;
+}
+
+.min_width_3 {
+    width: 47% !important;
+}
+
+.input_box_width {
+    width: 50%;
+}
+
+.input_box_width_40 {
+    width: 40%;
+}
+
+.input_box_width_60 {
+    width: 60%;
+}
+
+.input_box_width_1 {
+    width: 100%;
+}
+
+
+/* input field Sufix css start ------------------------------------------ */
+
+
+/* prepare wrapper element */
+
+div.input_field {
+    display: inline-block;
+    position: relative;
+}
+
+
+/* position the unit to the right of the wrapper */
+
+div.input_field::after {
+    position: absolute;
+    top: 11px;
+    right: 1em;
+    transition: all .05s ease-in-out;
+}
+
+
+/* move unit more to the left on hover or focus within for arrow buttons will appear to the right of number inputs */
+
+div.input_field:hover::after,
+div.input_field:focus-within::after {
+    right: 1.5em;
+}
+
+
+/* handle Firefox (arrows always shown) */
+
+@supports (-moz-appearance:none) {
+    div::after {
+        right: 1.5em;
+    }
+}
+
+
+/* set the unit abbreviation for each unit class */
+
+.kg::after {
+    content: 'kg';
+}
+
+.r::after {
+    content: 'R';
+}
+
+.percent::after {
+    content: '%';
+}
+
+
+/* input field Sufix css start ------------------------------------------ */
+
+
+/* progress bar start ------------------------------------------ */
+
+.progressbarclass {
+    margin: 0em 2em
+}
+
+.progressbarclass ul {
+    list-style: none!important;
+    padding: 0;
+    margin: 0;
+}
+
+.progressbarclass ul li {
+    display: table-cell;
+    width: 1%;
+    position: relative;
+    line-height: 48px;
+    margin: 0;
+    text-align: center;
+}
+
+.progressbarclass>ul>li:after,
+.progressbarclass>ul>li:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+}
+
+.progressbarclass>ul>li:after {
+    border: 24px solid transparent;
+    border-right: 0;
+    right: -14px;
+    border-left: 14px solid #9acd32;
+}
+
+.progressbarclass a {
+    display: block;
+    font-size: 16px;
+    width: auto;
+    height: 48px;
+    color: #757575;
+    overflow: hidden;
+    text-decoration: none;
+}
+
+.progressbarclass>ul>li.current:after,
+.progressbarclass>ul>li.current:before {
+    border-left-color: #233c65;
+    border-right-color: #233c65;
+}
+
+.progressbarclass>ul>li.complete a {
+    background-color: yellowgreen;
+}
+
+.progressbarclass>ul>li.current a {
+    background-color: #233c65;
+    color: white;
+}
+
+.progressbarclass>ul>li.inactive a {
+    background-color: #cfdbef;
+}
+
+.progressbarclass>ul>li.inactive:before {
+    right: -14px;
+    border-left: 14px solid #000;
+}
+
+.progressbarclass>ul>li.inactive:after {
+    right: -14px;
+    border-left: 14px solid #cfdbef;
+}
+
+.progressbarclass>ul>li:last-child:after {
+    right: -14px;
+    border-left: 14px solid #F4F5F7;
+}
+
+
+/* progress bar end ------------------------------------------ */
+
+
+/* Mayur_CSS end */
+
+.even {
+    height: 50px;
+    background: #b4d6d3;
+}
+
+.form-check {
+    position: relative;
+    display: inline-block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-left: 0;
+}
+
+.table,
+.table td {
+    text-align: center;
+    line-height: 1;
+    white-space: nowrap;
+    padding: 0rem 0rem;
+}
+
+
+/* Dattaraj Yard Scale Tab*/
+
+.flexcontainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.yardaddbtn {
+    height: 60%;
+    width: 100px;
+}
+
+.analytics {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+/* Rama Yard Scale Tab*/
+
+.organisationLogo {
+    text-align: center;
+    width: 100%;
+}
+
+.organisationLogo h5 {
+    font-size: 12px;
+    font-weight: 700;
+    margin-top: 4px;
+}
+
+.online {
+    display: flex;
+    justify-content: space-between;
+}
+
+.table td {
+    vertical-align: middle;
+    line-height: 1;
+    white-space: nowrap;
+    padding: 5px 5px;
+}
+
+.leftrightmulti {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.marglft-10 {
+    margin-right: 10px;
+}
+
+
+.progressbarclass {
+  margin: 0em 2em
+}
+.progressbarclass ul {
+  list-style: none!important;
+  padding: 0;
+  margin: 0;
+}
+
+.progressbarclass ul li {
+  display: table-cell;
+  width: 1%;
+  position: relative;
+  line-height: 48px;
+  margin: 0;
+  text-align: center;
+}
+
+.progressbarclass>ul>li:after, .progressbarclass>ul>li:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+}
+
+.progressbarclass>ul>li:after {
+  border: 24px solid transparent;
+  border-right: 0;
+  right: -14px;
+  border-left: 14px solid #9acd32;
+}
+
+.progressbarclass a {
+  display: block;
+  font-size: 16px;
+  width: auto;
+  height: 48px;
+  color: #757575;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.progressbarclass>ul>li.current:after, 
+.progressbarclass>ul>li.current:before {
+  border-left-color: #233c65;
+  border-right-color: #233c65;
+}
+.progressbarclass>ul>li.complete a{
+  background-color: yellowgreen;
+}
+.progressbarclass>ul>li.current a {
+  background-color: #233c65;
+  color: white;
+}
+.progressbarclass>ul>li.inactive a {
+  background-color: #cfdbef;
+}
+.progressbarclass>ul>li.inactive:before {
+  right: -14px;
+  border-left: 14px solid #000;
+}
+.progressbarclass>ul>li.inactive:after {
+  right: -14px;
+  border-left: 14px solid #cfdbef;
+}
+.progressbarclass>ul>li:last-child:after {
+  right: -14px;
+  border-left: 14px solid #F4F5F7;
+}

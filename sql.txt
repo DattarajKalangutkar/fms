@@ -1,3 +1,0 @@
-ALTER TABLE `service_registration_form` ADD `vSubject` VARCHAR(255) NOT NULL AFTER `dReceiptDate`;
-
-ALTER TABLE `service_registration_form` CHANGE `dReplyDate` `dReplyDate` DATE NOT NULL;
